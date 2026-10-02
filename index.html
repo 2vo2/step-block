@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>StepBlock</title>
+</head>
+<body>
+
+<!-- ========== 1. ВИБІР НАПРЯМКУ ========== -->
+<div class="view" id="home">
+  <header class="top"><div class="top-inner">
+    <div class="brand"><div class="brand-mark">IT</div><div class="brand-name">ITSTEP Academy<span>Безпечне середовище для занять</span></div></div>
+  </div></header>
+  <main>
+    <h1>Оберіть свій напрямок</h1>
+    <p class="lead">Натисніть на картку з назвою вашого курсу.</p>
+    <div class="grid big" id="dirGrid"></div>
+  </main>
+  <footer>ITSTEP Academy</footer>
+</div>
+
+<!-- ========== 2. РОКИ НАВЧАННЯ + ПРЕДМЕТИ ========== -->
+<div class="view" id="direction">
+  <header class="top"><div class="top-inner">
+    <div class="brand"><div class="brand-mark">IT</div><div class="brand-name">ITSTEP Academy<span id="dirCrumb"></span></div></div>
+  </div></header>
+  <main>
+    <div class="dir-head">
+      <button class="btn btn-light" id="toHome" type="button">← До вибору напрямку</button>
+    </div>
+    <h1 id="dirTitle" style="margin-top:20px"></h1>
+    <p class="lead" id="dirLead"></p>
+    <div id="years"></div>
+  </main>
+  <footer>ITSTEP Academy</footer>
+</div>
+
+<!-- ========== 3. ОБГОРТКА ДЛЯ САЙТУ ========== -->
+<div class="view" id="viewer">
+  <div class="bar">
+    <button class="btn btn-main" id="backBtn" type="button">← Назад до вибору</button>
+    <span class="bar-title" id="barTitle"></span>
+    <span class="bar-spacer"></span>
+    <span class="hint">Сторінка не завантажується?</span>
+    <button class="btn btn-ghost" id="reloadBtn" type="button">Оновити</button>
+    <button class="btn btn-ghost" id="directBtn" type="button">Відкрити напряму</button>
+  </div>
+  <iframe id="frame" title="Робоче середовище"
+          allow="fullscreen; clipboard-read; clipboard-write; camera; microphone"></iframe>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

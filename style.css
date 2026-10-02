@@ -1,0 +1,91 @@
+:root {
+    --orange: #F26A21;
+    --orange-dark: #D9560F;
+    --ink: #1B1D22;
+    --ink-soft: #2B2E36;
+    --paper: #F4F5F7;
+    --card: #FFFFFF;
+    --line: #E1E3E8;
+    --muted: #6B707C;
+    --bar-h: 56px;
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body { font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--paper); color: var(--ink); }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+.view { display: none; }
+body[data-view="home"] #home,
+body[data-view="direction"] #direction { display: flex; flex-direction: column; min-height: 100%; }
+body[data-view="viewer"] #viewer { display: flex; }
+
+/* ---------- Шапка ---------- */
+.top { background: var(--ink); color: #fff; border-bottom: 4px solid var(--orange); }
+.top-inner { max-width: 1100px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+/* Заміни на свій логотип: <img src="logos/itstep.svg"> */
+.brand-mark { width: 44px; height: 44px; border-radius: 10px; background: var(--orange); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: #fff; }
+.brand-name { font-weight: 700; font-size: 18px; line-height: 1.1; }
+.brand-name span { display: block; font-weight: 400; font-size: 13px; color: #A9AEBA; margin-top: 2px; }
+
+main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 36px 24px 56px; }
+h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.15; font-weight: 800; letter-spacing: -.5px; }
+.lead { margin-top: 10px; color: var(--muted); font-size: 17px; max-width: 60ch; }
+footer { padding: 16px 24px; text-align: center; color: var(--muted); font-size: 13px; }
+
+.btn { border: 0; border-radius: 8px; padding: 9px 16px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.btn-main { background: var(--orange); color: #fff; }
+.btn-main:hover { background: var(--orange-dark); }
+.btn-ghost { background: var(--ink-soft); color: #E8EAEE; }
+.btn-ghost:hover { background: #3A3E48; }
+.btn-light { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.btn-light:hover { border-color: var(--orange); }
+
+/* ---------- Картки ---------- */
+.grid { margin-top: 24px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.card {
+    position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 22px 22px; text-align: left; display: flex; flex-direction: column; gap: 14px; overflow: hidden;
+    transition: border-color .15s, transform .15s, box-shadow .15s;
+}
+.card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--accent, var(--orange)); }
+.card:hover { border-color: var(--accent, var(--orange)); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(27,29,34,.10); }
+.logo { width: 72px; height: 72px; border-radius: 14px; background: var(--paper); display: grid; place-items: center; overflow: hidden; }
+.logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+.logo .mono { font-size: 28px; font-weight: 800; color: var(--accent, var(--orange)); }
+.card h2 { font-size: 20px; font-weight: 700; }
+.card p { color: var(--muted); font-size: 15px; line-height: 1.4; }
+.card .go { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--orange-dark); }
+
+/* Картка з кількома посиланнями */
+.card.multi { cursor: default; }
+.card.multi:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.links { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+.links .btn { justify-content: center; width: 100%; }
+
+/* Великі картки напрямків */
+.grid.big { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px; }
+.grid.big .card { padding: 32px 28px 28px; gap: 16px; min-height: 260px; }
+.grid.big .card h2 { font-size: 30px; font-weight: 800; }
+.grid.big .logo { width: 88px; height: 88px; }
+.grid.big .meta { font-weight: 700; color: var(--accent, var(--orange)); font-size: 16px; }
+
+/* ---------- Сторінка напрямку ---------- */
+.dir-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.year { margin-top: 40px; }
+.year-title { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 800; }
+.year-title::before { content: ""; width: 6px; height: 26px; border-radius: 3px; background: var(--orange); }
+.year-title small { font-weight: 500; font-size: 14px; color: var(--muted); }
+.empty { margin-top: 16px; padding: 18px 20px; border: 2px dashed var(--line); border-radius: 12px; color: var(--muted); }
+
+/* ---------- Обгортка ---------- */
+#viewer { position: fixed; inset: 0; flex-direction: column; background: var(--ink); }
+.bar { height: var(--bar-h); flex: none; background: var(--ink); border-bottom: 3px solid var(--orange); display: flex; align-items: center; gap: 12px; padding: 0 14px; color: #fff; }
+.bar-title { font-weight: 600; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-spacer { flex: 1; }
+.hint { color: #A9AEBA; font-size: 13px; }
+#frame { flex: 1; width: 100%; border: 0; background: #fff; }
+
+@media (max-width: 760px) { .hint { display: none; } }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
