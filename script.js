@@ -159,7 +159,33 @@ const DIRECTIONS = [
                     }
                 ]
             },
-            { title: "5 рік навчання", sites: [] }
+            {
+                title: "5 рік навчання", sites: [
+                    {
+                        id: "unity", name: "AI ГЕЙМПЛЕЙ", desc: "Розробка ігор в Unity",
+                        logo: "", color: "#FF9F1C", url: "https://unity.com/"
+                    },
+                    {
+                        id: "intech", name: "ІННОВАЦІЙНІ ТЕХНОЛОГІЇ", desc: "Робототехніка мікроконтролерів",
+                        logo: "", color: "#FF9F1C", url: "https://www.tinkercad.com/"
+                    },
+                    {
+                        id: "blenderpro", name: "BLENDER PRO", desc: "Моделювання в Blender",
+                        logo: "", color: "#FF9F1C", url: "https://www.blender.org/"
+                    },
+                    {
+                        id: "startup", name: "СТАРТАП І ФРІЛАНС", desc: "Створення стартапу",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "googledocs", name: "Google Docs", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/document/create?hl%3Duk&followup=https://docs.google.com/document/create?hl%3Duk&hl=uk&ltmpl=docs&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1594020056:1791021852391644" },
+                            { id: "googlesheets", name: "Google Sheets  ", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/spreadsheets/create&followup=https://docs.google.com/spreadsheets/create&ltmpl=sheets&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1694858396:1791021873973920" }
+                        ]
+                    },
+                    {
+                        id: "aiassistant", name: "AI ASSISTANT", desc: "Розробка ШІ-помічника",
+                        logo: "", color: "#FF9F1C", url: "https://www.jetbrains.com/pycharm/download/?section=windows"
+                    }
+                ]
+            }
         ]
     },
     {
