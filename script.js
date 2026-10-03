@@ -23,38 +23,30 @@ const DIRECTIONS = [
             {
                 title: "1 рік навчання", sites: [
                     { id: "vrlab", name: "VR LAB", desc: "3D-моделювання", logo: "", url: "https://www.tinkercad.com/" },
-                    {
-                        id: "aidesign", name: "AI DESIGN", desc: "3D-моделювання", logo: "", links: [
-                            { id: "canva", name: "Canva", url: "https://www.canva.com/" },
-                            { id: "wix", name: "Wix", url: "https://uk.wix.com/" }
-                        ]
-                    },
+                    { id: "aidesign", name: "AI DESIGN", desc: "3D-моделювання", logo: "", links: [
+                        { id: "canva", name: "Canva", url: "https://www.canva.com/" },
+                        { id: "wix", name: "Wix", url: "https://uk.wix.com/" }
+                    ]},
                     { id: "3dgamecreator", name: "3D GAME CREATOR", desc: "Розробка ігор в Kodu", logo: "", url: "https://www.kodugamelab.com/" },
                     { id: "arcadelab", name: "ARCADE LAB", desc: "Розробка ігор в Construct 3", logo: "", url: "https://editor.construct.net/" },
                     { id: "gamedesign", name: "ІГРОВИЙ ДИЗАЙН", desc: "Ігровий дизайн", logo: "", url: "https://www.photopea.com/" },
-                    {
-                        id: "robotai", name: "РОБОТОТЕХНІКА AI", desc: "Робототехніка LEGO", logo: "", links: [
-                            { id: "inst", name: "Інструкції", url: "https://www.lego.com/uk-ua/service/building-instructions/51515" },
-                            { id: "vrvex", name: "VR VEX", url: "https://vr.vex.com/" }
-                        ]
-                    }
+                    { id: "robotai", name: "РОБОТОТЕХНІКА AI", desc: "Робототехніка LEGO", logo: "", links: [
+                        { id: "inst", name: "Інструкції", url: "https://www.lego.com/uk-ua/service/building-instructions/51515" },
+                        { id: "vrvex", name: "VR VEX", url: "https://vr.vex.com/" }
+                    ]}
                 ]
             },
             {
                 title: "2 рік навчання", sites: [
-                    {
-                        id: "photolab", name: "PHOTO LAB", desc: "Фотолабораторія", logo: "", links: [
-                            { id: "photopea", name: "Photopea", url: "https://www.photopea.com/" },
-                            { id: "camerasim", name: "CameraSim", url: "https://www.camerasim.com/" }
-                        ]
-                    },
-                    {
-                        id: "designroom3d", name: "DESIGN ROOM 3D", desc: "Проєктування інтер'єру", logo: "", links: [
-                            { id: "roomstyler", name: "Roomstyler", url: "https://roomstyler.com/" },
-                            { id: "sweethome3d", name: "Sweet Home 3D", url: "https://www.sweethome3d.com/" },
-                            { id: "planner5d", name: "Planner 5D", url: "https://planner5d.com/" }
-                        ]
-                    },
+                    { id: "photolab", name: "PHOTO LAB", desc: "Фотолабораторія", logo: "", links: [
+                        { id: "photopea", name: "Photopea", url: "https://www.photopea.com/" },
+                        { id: "camerasim", name: "CameraSim", url: "https://www.camerasim.com/" }
+                    ]},
+                    { id: "designroom3d", name: "DESIGN ROOM 3D", desc: "Проєктування інтер'єру", logo: "", links: [
+                        { id: "roomstyler", name: "Roomstyler", url: "https://roomstyler.com/" },
+                        { id: "sweethome3d", name: "Sweet Home 3D", url: "https://www.sweethome3d.com/" },
+                        { id: "planner5d", name: "Planner 5D", url: "https://planner5d.com/" }
+                    ]},
                     { id: "webart", name: "WEB ART", desc: "Веб-дизайн(HTML-CSS-JS)", logo: "", url: "https://onecompiler.com/html" },
                     { id: "smartgadgetslab", name: "SMART GADGETS LAB", desc: "Робототехніка Micro:bit", logo: "", url: "https://makecode.microbit.org/#" },
                     { id: "minecraftai", name: "MINECRAFT AI", desc: "Minecraft Education", logo: "", url: "https://education.minecraft.net/en-us" },
@@ -63,22 +55,18 @@ const DIRECTIONS = [
             },
             {
                 title: "3 рік навчання", sites: [
-                    {
-                        id: "mobilear", name: "МОБІЛЬНІ ЗАСТОСУНКИ AR", desc: "Розробка мобільних застосунків", logo: "", links: [
-                            { id: "kodular", name: "Kodular", url: "https://www.kodular.io/" },
-                            { id: "thunkable", name: "Thunkable", url: "https://thunkable.com/" }
-                        ]
-                    },
+                    { id: "mobilear", name: "МОБІЛЬНІ ЗАСТОСУНКИ AR", desc: "Розробка мобільних застосунків", logo: "", links: [
+                        { id: "kodular", name: "Kodular", url: "https://www.kodular.io/" },
+                        { id: "thunkable", name: "Thunkable", url: "https://thunkable.com/" }
+                    ]},
                     { id: "pythonlab", name: "PYTHON LAB", desc: "Програмування Python Middle", logo: "", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
                     { id: "roblox", name: "ROBLOX", desc: "Розробка ігор в Roblox Studio", logo: "", url: "https://create.roblox.com/landing" },
                     { id: "conceptart", name: "CONCEPT ART", desc: "Створення концепт-артів в Krita", logo: "", url: "https://krita.org/uk/" },
-                    {
-                        id: "blogging", name: "БЛОГІНГ", desc: "Створення відео для соц.мереж", logo: "", links: [
-                            { id: "capcut", name: "CapCut", url: "https://www.capcut.com/uk-ua/tools/online-video-editor" },
-                            { id: "vnvideo", name: "VN Video", url: "https://vlognow.me/" },
-                            { id: "flexclip", name: "FlexClip", url: "https://www.flexclip.com/" }
-                        ]
-                    },
+                    { id: "blogging", name: "БЛОГІНГ", desc: "Створення відео для соц.мереж", logo: "", links: [
+                        { id: "capcut", name: "CapCut", url: "https://www.capcut.com/uk-ua/tools/online-video-editor" },
+                        { id: "vnvideo", name: "VN Video", url: "https://vlognow.me/" },
+                        { id: "flexclip", name: "FlexClip", url: "https://www.flexclip.com/" }
+                    ]},
                     { id: "smarttechlab", name: "SMARTTECH LAB", desc: "Робототехніка Arduion UNO", logo: "", url: "https://www.tinkercad.com/" }
                 ]
             },
@@ -89,12 +77,10 @@ const DIRECTIONS = [
                     { id: "opentoonz", name: "АНІМАЦІЯ ТА МУЛЬТИПЛІКАЦІЯ", desc: "Анімація в OpenToonz", logo: "", url: "https://opentoonz.github.io/e/index.html" },
                     { id: "digitalart", name: "DIGITAL ART", desc: "Розробка бренд-стилю в векторній графіці", logo: "", url: "https://www.vectorpea.com/" },
                     { id: "videolab", name: "VIDEO LAB", desc: "Монтаж відео в DaVinci Resolve", logo: "", url: "https://www.blackmagicdesign.com/ua/products/davinciresolve" },
-                    {
-                        id: "pythonprolab", name: "PYTHON PRO LAB", desc: "Програмування Python Senior", logo: "", links: [
-                            { id: "pycharm", name: "PyCharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
-                            { id: "github", name: "GitHub", url: "https://github.com/" }
-                        ]
-                    }
+                    { id: "pythonprolab", name: "PYTHON PRO LAB", desc: "Програмування Python Senior", logo: "", links: [
+                        { id: "pycharm", name: "PyCharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
+                        { id: "github", name: "GitHub", url: "https://github.com/" }
+                    ]}
                 ]
             },
             {
@@ -102,12 +88,10 @@ const DIRECTIONS = [
                     { id: "unity", name: "AI ГЕЙМПЛЕЙ", desc: "Розробка ігор в Unity", logo: "", url: "https://unity.com/" },
                     { id: "intech", name: "ІННОВАЦІЙНІ ТЕХНОЛОГІЇ", desc: "Робототехніка мікроконтролерів", logo: "", url: "https://www.tinkercad.com/" },
                     { id: "blenderpro", name: "BLENDER PRO", desc: "Моделювання в Blender", logo: "", url: "https://www.blender.org/" },
-                    {
-                        id: "startup", name: "СТАРТАП І ФРІЛАНС", desc: "Створення стартапу", logo: "", links: [
-                            { id: "googledocs", name: "Google Docs", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/document/create?hl%3Duk&followup=https://docs.google.com/document/create?hl%3Duk&hl=uk&ltmpl=docs&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1594020056:1791021852391644" },
-                            { id: "googlesheets", name: "Google Sheets", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/spreadsheets/create&followup=https://docs.google.com/spreadsheets/create&ltmpl=sheets&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1694858396:1791021873973920" }
-                        ]
-                    },
+                    { id: "startup", name: "СТАРТАП І ФРІЛАНС", desc: "Створення стартапу", logo: "", links: [
+                        { id: "googledocs", name: "Google Docs", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/document/create?hl%3Duk&followup=https://docs.google.com/document/create?hl%3Duk&hl=uk&ltmpl=docs&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1594020056:1791021852391644" },
+                        { id: "googlesheets", name: "Google Sheets", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/spreadsheets/create&followup=https://docs.google.com/spreadsheets/create&ltmpl=sheets&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1694858396:1791021873973920" }
+                    ]},
                     { id: "aiassistant", name: "AI ASSISTANT", desc: "Розробка ШІ-помічника", logo: "", url: "https://www.jetbrains.com/pycharm/download/?section=windows" }
                 ]
             }
@@ -118,20 +102,16 @@ const DIRECTIONS = [
         years: [
             {
                 title: "1 рік навчання", sites: [
-                    {
-                        id: "mobilear", name: "МОБІЛЬНІ ЗАСТОСУНКИ AR", desc: "Розробка мобільних застосунків", logo: "", links: [
-                            { id: "kodular", name: "Kodular", url: "https://www.kodular.io/" },
-                            { id: "thunkable", name: "Thunkable", url: "https://thunkable.com/" }
-                        ]
-                    },
+                    { id: "mobilear", name: "МОБІЛЬНІ ЗАСТОСУНКИ AR", desc: "Розробка мобільних застосунків", logo: "", links: [
+                        { id: "kodular", name: "Kodular", url: "https://www.kodular.io/" },
+                        { id: "thunkable", name: "Thunkable", url: "https://thunkable.com/" }
+                    ]},
                     { id: "roblox", name: "ROBLOX", desc: "Розробка ігор в Roblox Studio", logo: "", url: "https://create.roblox.com/landing" },
-                    {
-                        id: "blogging", name: "БЛОГІНГ", desc: "Створення відео для соц.мереж", logo: "", links: [
-                            { id: "capcut", name: "CapCut", url: "https://www.capcut.com/uk-ua/tools/online-video-editor" },
-                            { id: "vnvideo", name: "VN Video", url: "https://vlognow.me/" },
-                            { id: "flexclip", name: "FlexClip", url: "https://www.flexclip.com/" }
-                        ]
-                    },
+                    { id: "blogging", name: "БЛОГІНГ", desc: "Створення відео для соц.мереж", logo: "", links: [
+                        { id: "capcut", name: "CapCut", url: "https://www.capcut.com/uk-ua/tools/online-video-editor" },
+                        { id: "vnvideo", name: "VN Video", url: "https://vlognow.me/" },
+                        { id: "flexclip", name: "FlexClip", url: "https://www.flexclip.com/" }
+                    ]},
                     { id: "pythonlab", name: "PYTHON LAB", desc: "Програмування Python Middle", logo: "", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
                     { id: "conceptart", name: "CONCEPT ART", desc: "Створення концепт-артів в Krita", logo: "", url: "https://krita.org/uk/" },
                     { id: "smarttechlab", name: "SMARTTECH LAB", desc: "Робототехніка Arduion UNO", logo: "", url: "https://www.tinkercad.com/" }
@@ -144,12 +124,10 @@ const DIRECTIONS = [
                     { id: "opentoonz", name: "АНІМАЦІЯ ТА МУЛЬТИПЛІКАЦІЯ", desc: "Анімація в OpenToonz", logo: "", url: "https://opentoonz.github.io/e/index.html" },
                     { id: "digitalart", name: "DIGITAL ART", desc: "Розробка бренд-стилю в векторній графіці", logo: "", url: "https://www.vectorpea.com/" },
                     { id: "figma", name: "ВЕБДИЗАЙН", desc: "Вебдизайн в Figma", logo: "", url: "https://www.figma.com/" },
-                    {
-                        id: "pythonprolab", name: "PYTHON PRO LAB", desc: "Програмування Python Senior", logo: "", links: [
-                            { id: "pycharm", name: "PyCharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
-                            { id: "github", name: "GitHub", url: "https://github.com/" }
-                        ]
-                    }
+                    { id: "pythonprolab", name: "PYTHON PRO LAB", desc: "Програмування Python Senior", logo: "", links: [
+                        { id: "pycharm", name: "PyCharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
+                        { id: "github", name: "GitHub", url: "https://github.com/" }
+                    ]}
                 ]
             },
             {
@@ -157,12 +135,10 @@ const DIRECTIONS = [
                     { id: "unity", name: "AI ГЕЙМПЛЕЙ", desc: "Розробка ігор в Unity", logo: "", url: "https://unity.com/" },
                     { id: "blenderpro", name: "BLENDER PRO", desc: "Моделювання в Blender", logo: "", url: "https://www.blender.org/" },
                     { id: "intech", name: "ІННОВАЦІЙНІ ТЕХНОЛОГІЇ", desc: "Робототехніка мікроконтролерів", logo: "", url: "https://www.tinkercad.com/" },
-                    {
-                        id: "startup", name: "СТАРТАП І ФРІЛАНС", desc: "Створення стартапу", logo: "", links: [
-                            { id: "googledocs", name: "Google Docs", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/document/create?hl%3Duk&followup=https://docs.google.com/document/create?hl%3Duk&hl=uk&ltmpl=docs&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1594020056:1791021852391644" },
-                            { id: "googlesheets", name: "Google Sheets", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/spreadsheets/create&followup=https://docs.google.com/spreadsheets/create&ltmpl=sheets&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1694858396:1791021873973920" }
-                        ]
-                    },
+                    { id: "startup", name: "СТАРТАП І ФРІЛАНС", desc: "Створення стартапу", logo: "", links: [
+                        { id: "googledocs", name: "Google Docs", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/document/create?hl%3Duk&followup=https://docs.google.com/document/create?hl%3Duk&hl=uk&ltmpl=docs&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1594020056:1791021852391644" },
+                        { id: "googlesheets", name: "Google Sheets", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/spreadsheets/create&followup=https://docs.google.com/spreadsheets/create&ltmpl=sheets&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1694858396:1791021873973920" }
+                    ]},
                     { id: "aiassistant", name: "AI ASSISTANT", desc: "Розробка ШІ-помічника", logo: "", url: "https://www.jetbrains.com/pycharm/download/?section=windows" }
                 ]
             }
@@ -225,6 +201,23 @@ function makeMultiCard(item, d) {
     card.append(logoBox(item), h, p, box);
     return card;
 }
+
+// --- Кнопки в шапці (відкриваються в новому вікні) ---
+const HEADER_LINKS = [
+    { name: "MyStat", url: "https://mystat.itstep.org/" },
+    { name: "Teams", url: "https://teams.microsoft.com/" }
+];
+document.querySelectorAll(".top-inner").forEach((inner) => {
+    const nav = document.createElement("nav");
+    nav.className = "top-links";
+    HEADER_LINKS.forEach((l) => {
+        const a = document.createElement("a");
+        a.href = l.url; a.target = "_blank"; a.rel = "noopener";
+        a.className = "btn btn-top"; a.textContent = l.name + " ↗";
+        nav.append(a);
+    });
+    inner.append(nav);
+});
 
 // --- Сторінка 1: напрямки ---
 DIRECTIONS.forEach((d, i) => {
