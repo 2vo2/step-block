@@ -191,9 +191,99 @@ const DIRECTIONS = [
     {
         id: "mka-13-14", name: "МКА 13–14", full: "Мала Комп'ютерна Академія, 13–14 років", color: "#7A4FD6", logo: "",
         years: [
-            { title: "1 рік навчання", sites: [] },
-            { title: "2 рік навчання", sites: [] },
-            { title: "3 рік навчання", sites: [] }
+            {
+                title: "1 рік навчання", sites: [
+                    {
+                        id: "mobilear", name: "МОБІЛЬНІ ЗАСТОСУНКИ AR", desc: "Розробка мобільних застосунків",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "kodular", name: "Kodular", url: "https://www.kodular.io/" },
+                            { id: "thunkable", name: "Thunkable", url: "https://thunkable.com/" }
+                        ]
+                    },
+                    {
+                        id: "roblox", name: "ROBLOX", desc: "Розробка ігор в Roblox Studio",
+                        logo: "", color: "#FF9F1C", url: "https://create.roblox.com/landing"
+                    },
+                    {
+                        id: "blogging", name: "БЛОГІНГ", desc: "Створення відео для соц.мереж",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "capcut", name: "CapCut", url: "https://www.capcut.com/uk-ua/tools/online-video-editor" },
+                            { id: "vnvideo", name: "VN Video", url: "https://vlognow.me/" },
+                            { id: "flexclip", name: "FlexClip", url: "https://www.flexclip.com/" }
+                        ]
+                    },
+                    {
+                        id: "pythonlab", name: "PYTHON LAB", desc: "Програмування Python Middle",
+                        logo: "", color: "#FF9F1C", url: "https://www.jetbrains.com/pycharm/download/?section=windows"
+                    },
+                    {
+                        id: "conceptart", name: "CONCEPT ART", desc: "Створення концепт-артів в Krita",
+                        logo: "", color: "#FF9F1C", url: "https://krita.org/uk/"
+                    },
+                    {
+                        id: "smarttechlab", name: "SMARTTECH LAB", desc: "Робототехніка Arduion UNO",
+                        logo: "", color: "#FF9F1C", url: "https://www.tinkercad.com/"
+                    }
+                ]
+            },
+            {
+                title: "2 рік навчання", sites: [
+                    {
+                        id: "unrealengine", name: "UNREAL ENGINE", desc: "Розробка ігор в Unreal Engine",
+                        logo: "", color: "#FF9F1C", url: "https://www.unrealengine.com/"
+                    },
+                    {
+                        id: "videolab", name: "VIDEO LAB", desc: "Монтаж відео в DaVinci Resolve",
+                        logo: "", color: "#FF9F1C", url: "https://www.blackmagicdesign.com/ua/products/davinciresolve"
+                    },
+                    {
+                        id: "opentoonz", name: "АНІМАЦІЯ ТА МУЛЬТИПЛІКАЦІЯ", desc: "Анімація в OpenToonz",
+                        logo: "", color: "#FF9F1C", url: "https://opentoonz.github.io/e/index.html"
+                    },
+                    {
+                        id: "digitalart", name: "DIGITAL ART", desc: "Розробка бренд-стилю в векторній графіці",
+                        logo: "", color: "#FF9F1C", url: "https://www.vectorpea.com/"
+                    },
+                    {
+                        id: "figma", name: "ВЕБДИЗАЙН", desc: "Вебдизайн в Figma",
+                        logo: "", color: "#FF9F1C", url: "https://www.figma.com/"
+                    },
+                    {
+                        id: "pythonprolab", name: "PYTHON PRO LAB", desc: "Програмування Python Senior",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "pycharm", name: "PyCharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
+                            { id: "github", name: "GitHub", url: "https://github.com/" }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "3 рік навчання", sites: [
+                    {
+                        id: "unity", name: "AI ГЕЙМПЛЕЙ", desc: "Розробка ігор в Unity",
+                        logo: "", color: "#FF9F1C", url: "https://unity.com/"
+                    },
+                    {
+                        id: "blenderpro", name: "BLENDER PRO", desc: "Моделювання в Blender",
+                        logo: "", color: "#FF9F1C", url: "https://www.blender.org/"
+                    },
+                    {
+                        id: "intech", name: "ІННОВАЦІЙНІ ТЕХНОЛОГІЇ", desc: "Робототехніка мікроконтролерів",
+                        logo: "", color: "#FF9F1C", url: "https://www.tinkercad.com/"
+                    },
+                    {
+                        id: "startup", name: "СТАРТАП І ФРІЛАНС", desc: "Створення стартапу",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "googledocs", name: "Google Docs", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/document/create?hl%3Duk&followup=https://docs.google.com/document/create?hl%3Duk&hl=uk&ltmpl=docs&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1594020056:1791021852391644" },
+                            { id: "googlesheets", name: "Google Sheets  ", url: "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/spreadsheets/create&followup=https://docs.google.com/spreadsheets/create&ltmpl=sheets&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1694858396:1791021873973920" }
+                        ]
+                    },
+                    {
+                        id: "aiassistant", name: "AI ASSISTANT", desc: "Розробка ШІ-помічника",
+                        logo: "", color: "#FF9F1C", url: "https://www.jetbrains.com/pycharm/download/?section=windows"
+                    }
+                ]
+            }
         ]
     }
 ];
