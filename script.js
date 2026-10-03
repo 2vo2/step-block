@@ -128,7 +128,37 @@ const DIRECTIONS = [
                     }
                 ]
             },
-            { title: "4 рік навчання", sites: [] },
+            {
+                title: "4 рік навчання", sites: [
+                    {
+                        id: "unrealengine", name: "UNREAL ENGINE", desc: "Розробка ігор в Unreal Engine",
+                        logo: "", color: "#FF9F1C", url: "https://www.unrealengine.com/"
+                    },
+                    {
+                        id: "figma", name: "ВЕБДИЗАЙН", desc: "Вебдизайн в Figma",
+                        logo: "", color: "#FF9F1C", url: "https://www.figma.com/"
+                    },
+                    {
+                        id: "opentoonz", name: "АНІМАЦІЯ ТА МУЛЬТИПЛІКАЦІЯ", desc: "Анімація в OpenToonz",
+                        logo: "", color: "#FF9F1C", url: "https://opentoonz.github.io/e/index.html"
+                    },
+                    {
+                        id: "digitalart", name: "DIGITAL ART", desc: "Розробка бренд-стилю в векторній графіці",
+                        logo: "", color: "#FF9F1C", url: "https://www.vectorpea.com/"
+                    },
+                    {
+                        id: "videolab", name: "VIDEO LAB", desc: "Монтаж відео в DaVinci Resolve",
+                        logo: "", color: "#FF9F1C", url: "https://www.blackmagicdesign.com/ua/products/davinciresolve"
+                    },
+                    {
+                        id: "pythonprolab", name: "PYTHON PRO LAB", desc: "Програмування Python Senior",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "pycharm", name: "PyCharm", url: "https://www.jetbrains.com/pycharm/download/?section=windows" },
+                            { id: "github", name: "GitHub", url: "https://github.com/" }
+                        ]
+                    }
+                ]
+            },
             { title: "5 рік навчання", sites: [] }
         ]
     },
