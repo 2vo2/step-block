@@ -14,32 +14,10 @@ const DIRECTIONS = [
         id: "pk", name: "ПК", full: "Перший Крок", color: "#F26A21", logo: "",
         years: [
             {
-                title: "1 рік навчання", sites: [
-                    {
-                        id: "scratch", name: "Scratch", desc: "Візуальне програмування блоками",
-                        url: "https://scratch.mit.edu/projects/editor/", logo: "", color: "#FF9F1C"
-                    },
-                    {
-                        id: "codeorg", name: "Code.org", desc: "Перші кроки в програмуванні",
-                        url: "https://code.org/", logo: "", color: "#00ADBC"
-                    }
-                ]
+                title: "1 рік навчання", sites: []
             },
             {
-                title: "2 рік навчання", sites: [
-                    {
-                        id: "tinkercad", name: "TinkerCAD", desc: "3D-моделювання та електронні схеми",
-                        url: "https://www.tinkercad.com/", logo: "", color: "#1477D1"
-                    },
-                    {
-                        id: "onecompiler", name: "OneCompiler", desc: "Онлайн-компілятор для багатьох мов",
-                        url: "https://onecompiler.com/", logo: "", color: "#F26A21"
-                    },
-                    {
-                        id: "w3schools", name: "W3Schools Editor", desc: "HTML, CSS та JavaScript у браузері",
-                        url: "https://www.w3schools.com/", logo: "", color: "#04AA6D"
-                    }
-                ]
+                title: "2 рік навчання", sites: []
             }
         ]
     },
