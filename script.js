@@ -39,7 +39,7 @@ const DIRECTIONS = [
                     },
                     {
                         id: "3dgamecreator", name: "3D GAME CREATOR", desc: "Розробка ігор в Kodu",
-                        logo: "", color: "#FF9F1C", url: ""
+                        logo: "", color: "#FF9F1C", url: "https://www.kodugamelab.com/"
                     },
                     {
                         id: "arcadelab", name: "ARCADE LAB", desc: "Розробка ігор в Construct 3",
@@ -58,7 +58,41 @@ const DIRECTIONS = [
                     }
                 ]
             },
-            { title: "2 рік навчання", sites: [] },
+            {
+                title: "2 рік навчання", sites: [
+                    {
+                        id: "photolab", name: "PHOTO LAB", desc: "Фотолабораторія",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "photopea", name: "Photopea", url: "https://www.photopea.com/" },
+                            { id: "camerasim", name: "CameraSim", url: "https://www.camerasim.com/" }
+                        ]
+                    },
+                    {
+                        id: "designroom3d", name: "DESIGN ROOM 3D", desc: "Проєктування інтер'єру",
+                        logo: "", color: "#FF9F1C", links: [
+                            { id: "roomstyler", name: "Roomstyler", url: "https://roomstyler.com/" },
+                            { id: "sweethome3d", name: "Sweet Home 3D", url: "https://www.sweethome3d.com/" },
+                            { id: "planner5d", name: "Planner 5D", url: "https://planner5d.com/" }
+                        ]
+                    },
+                    {
+                        id: "webart", name: "WEB ART", desc: "Веб-дизайн(HTML-CSS-JS)",
+                        logo: "", color: "#FF9F1C", url: "https://onecompiler.com/html"
+                    },
+                    {
+                        id: "smartgadgetslab", name: "SMART GADGETS LAB", desc: "Робототехніка Micro:bit",
+                        logo: "", color: "#FF9F1C", url: "https://makecode.microbit.org/#"
+                    },
+                    {
+                        id: "minecraftai", name: "MINECRAFT AI", desc: "Minecraft Education",
+                        logo: "", color: "#FF9F1C", url: "https://education.minecraft.net/en-us"
+                    },
+                    {
+                        id: "pythonai", name: "PYTHON AI", desc: "Програмування Python Junior",
+                        logo: "", color: "#FF9F1C", url: "https://onecompiler.com/python"
+                    },
+                ]
+            },
             { title: "3 рік навчання", sites: [] },
             { title: "4 рік навчання", sites: [] },
             { title: "5 рік навчання", sites: [] }
