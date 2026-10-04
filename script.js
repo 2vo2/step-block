@@ -143,8 +143,62 @@ const DIRECTIONS = [
                 ]
             }
         ]
+    },
+    {
+        id: "useful", name: "Корисні посилання", full: "Підбірка корисних сервісів за категоріями", logo: "", color: "var(--blue-light)",
+        categories: true,   // замість років навчання — категорії
+        newWindow: true,    // сервіси відкриваються в новому вікні + випадаюче меню в обгортці
+        years: [
+            {
+                title: "Ігри з дітьми", sites: [
+                    { id: "kahoot", name: "Kahoot!", desc: "Вікторини та інтерактивні опитування", logo: "", url: "https://kahoot.it/" },
+                    { id: "wordwall", name: "Wordwall", desc: "Ігри та вправи для закріплення матеріалу", logo: "", url: "https://wordwall.net/" },
+                    { id: "blooket", name: "Blooket", desc: "Ігрові вікторини для класу", logo: "", url: "https://www.blooket.com/" },
+                    { id: "learningapps", name: "LearningApps", desc: "Інтерактивні навчальні вправи", logo: "", url: "https://learningapps.org/" }
+                ]
+            },
+            {
+                title: "Додаткове програмування", sites: [
+                    { id: "codeorg2", name: "Code.org", desc: "Курси та «Година коду»", logo: "", url: "https://code.org/" },
+                    { id: "khanacademy", name: "Khan Academy", desc: "Безкоштовні курси з програмування", logo: "", url: "https://www.khanacademy.org/" },
+                    { id: "freecodecamp", name: "freeCodeCamp", desc: "Практика з веброзробки", logo: "", url: "https://www.freecodecamp.org/" },
+                    { id: "w3schools2", name: "W3Schools", desc: "Довідник з HTML, CSS, JavaScript", logo: "", url: "https://www.w3schools.com/" }
+                ]
+            },
+            {
+                title: "Дизайн і графіка", sites: [
+                    { id: "canva2", name: "Canva", desc: "Дизайн презентацій, постерів, відео", logo: "", url: "https://www.canva.com/" },
+                    { id: "coolors", name: "Coolors", desc: "Підбір кольорових палітр", logo: "", url: "https://coolors.co/" },
+                    { id: "figma2", name: "Figma", desc: "Макети інтерфейсів та вебдизайн", logo: "", url: "https://www.figma.com/" }
+                ]
+            },
+            {
+                title: "Робота в команді", sites: [
+                    { id: "miro", name: "Miro", desc: "Онлайн-дошка для ідей і схем", logo: "", url: "https://miro.com/" },
+                    { id: "padlet", name: "Padlet", desc: "Дошка для спільних нотаток і ідей", logo: "", url: "https://padlet.com/" }
+                ]
+            }
+        ]
     }
 ];
+
+/* ==================== Перевірка: сторінку відкрито в SEB ====================
+   SEB додає до user agent рядок "SEB/версія". Для тестів у звичайному
+   браузері поставте REQUIRE_SEB = false (перед роздачею поверніть true).
+   Це проста перевірка: вона відсікає випадкове відкриття сайту, але
+   НЕ захищає від навмисної підміни user agent. */
+const REQUIRE_SEB = true;
+
+if (REQUIRE_SEB && !/\bSEB\//i.test(navigator.userAgent)) {
+    document.title = "Потрібен Safe Exam Browser";
+    document.body.className = "gate-page";
+    document.body.innerHTML =
+        '<div class="gate"><div class="gate-mark">IT</div>' +
+        '<h1>Відкрийте сторінку через Safe Exam Browser</h1>' +
+        '<p>Цей сайт працює лише в безпечному середовищі. ' +
+        'Закрийте браузер і запустіть Safe Exam Browser.</p></div>';
+    throw new Error("Сторінку відкрито не в Safe Exam Browser");
+}
 
 /* ==================== Код (зазвичай не чіпати) ==================== */
 const $ = (id) => document.getElementById(id);
@@ -154,6 +208,7 @@ let currentSite = null, currentFrameUrl = "";
 // Автоматичні кольори карток: синій → зелений → помаранчевий (з палітри в style.css)
 const ACCENTS = ["var(--blue)", "var(--green)", "var(--amber)"];
 
+function pluralCats(n) { return n === 1 ? "категорія" : (n >= 2 && n <= 4 ? "категорії" : "категорій"); }
 function pluralYears(n) { return n === 1 ? "рік" : (n >= 2 && n <= 4 ? "роки" : "років"); }
 
 function logoBox(item) {
@@ -169,9 +224,10 @@ function logoBox(item) {
     return box;
 }
 
-function makeCard(item, titleText, descText, goText, onClick, metaText) {
-    const card = document.createElement("button");
-    card.type = "button"; card.className = "card";
+function makeCard(item, titleText, descText, goText, onClick, metaText, href) {
+    const card = document.createElement(href ? "a" : "button");
+    card.className = "card";
+    if (href) { card.href = href; card.target = "_blank"; card.rel = "noopener"; } else card.type = "button";
     if (item.color) card.style.setProperty("--accent", item.color);
     const h = document.createElement("h2"); h.textContent = titleText;
     card.append(logoBox(item), h);
@@ -179,7 +235,7 @@ function makeCard(item, titleText, descText, goText, onClick, metaText) {
     if (descText) { const p = document.createElement("p"); p.textContent = descText; card.append(p); }
     const go = document.createElement("span"); go.className = "go"; go.textContent = goText;
     card.append(go);
-    card.addEventListener("click", onClick);
+    if (!href) card.addEventListener("click", onClick);
     return card;
 }
 
@@ -192,10 +248,11 @@ function makeMultiCard(item, d) {
     const p = document.createElement("p"); p.textContent = item.desc || "";
     const box = document.createElement("div"); box.className = "links";
     item.links.forEach((l) => {
-        const b = document.createElement("button");
-        b.type = "button"; b.className = "btn btn-main";
+        const b = document.createElement(d.newWindow ? "a" : "button");
+        b.className = "btn btn-main";
         b.textContent = l.name;
-        b.addEventListener("click", () => { location.hash = "#" + d.id + "/" + item.id + "/" + l.id; });
+        if (d.newWindow) { b.href = l.url; b.target = "_blank"; b.rel = "noopener"; b.textContent += " ↗"; }
+        else { b.type = "button"; b.addEventListener("click", () => { location.hash = "#" + d.id + "/" + item.id + "/" + l.id; }); }
         box.append(b);
     });
     card.append(logoBox(item), h, p, box);
@@ -219,17 +276,79 @@ document.querySelectorAll(".top-inner").forEach((inner) => {
     inner.append(nav);
 });
 
+// Ті самі кнопки на панелі обгортки: відкриваються в новому вікні, прогрес на сайті не втрачається
+const viewerBar = document.querySelector("#viewer .bar");
+if (viewerBar) {
+    const nav = document.createElement("nav");
+    nav.className = "bar-links";
+    HEADER_LINKS.forEach((l) => {
+        const a = document.createElement("a");
+        a.href = l.url; a.target = "_blank"; a.rel = "noopener";
+        a.className = "btn btn-ghost"; a.textContent = l.name + " ↗";
+        nav.append(a);
+    });
+    viewerBar.insertBefore(nav, viewerBar.querySelector(".hint"));
+}
+
+// Випадаюче меню на панелі обгортки: сервіси з напряму, де newWindow: true (відкриваються в новому вікні)
+const helperDir = DIRECTIONS.find((d) => d.newWindow);
+if (viewerBar && helperDir) {
+    const menu = document.createElement("div");
+    menu.className = "menu";
+    const toggle = document.createElement("button");
+    toggle.type = "button"; toggle.className = "btn btn-ghost";
+    toggle.textContent = helperDir.name + " ▾";
+    toggle.setAttribute("aria-haspopup", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    const pop = document.createElement("div");
+    pop.className = "menu-pop";
+
+    const setOpen = (open) => {
+        menu.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+    };
+
+    helperDir.years.forEach((cat) => {
+        if (!cat.sites.length) return;
+        const h = document.createElement("div");
+        h.className = "menu-cat"; h.textContent = cat.title;
+        pop.append(h);
+        cat.sites.forEach((s) => {
+            const items = s.links
+                ? s.links.map((l) => ({ name: s.name + " — " + l.name, url: l.url }))
+                : [{ name: s.name, url: s.url }];
+            items.forEach((x) => {
+                const a = document.createElement("a");
+                a.className = "menu-item"; a.href = x.url; a.target = "_blank"; a.rel = "noopener";
+                a.textContent = x.name + " ↗";
+                a.addEventListener("click", () => setOpen(false));
+                pop.append(a);
+            });
+        });
+    });
+
+    toggle.addEventListener("click", (e) => { e.stopPropagation(); setOpen(!menu.classList.contains("open")); });
+    document.addEventListener("click", (e) => { if (!menu.contains(e.target)) setOpen(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+    window.addEventListener("blur", () => setOpen(false));   // клік усередині сайту (iframe) закриває меню
+
+    menu.append(toggle, pop);
+    viewerBar.insertBefore(menu, viewerBar.querySelector(".hint"));
+}
+
 // --- Сторінка 1: напрямки ---
 DIRECTIONS.forEach((d, i) => {
     if (!d.color) d.color = ACCENTS[i % ACCENTS.length];
     const n = d.years.length;
-    $("dirGrid").append(makeCard(d, d.name, d.full, "Обрати", () => { location.hash = "#" + d.id; }, n + " " + pluralYears(n) + " навчання"));
+    $("dirGrid").append(makeCard(d, d.name, d.full, "Обрати", () => { location.hash = "#" + d.id; }, d.categories ? n + " " + pluralCats(n) : n + " " + pluralYears(n) + " навчання"));
 });
 
 // --- Сторінка 2: роки та предмети ---
 function renderDirection(d) {
     $("dirTitle").textContent = d.name;
-    $("dirLead").textContent = d.full + ". Оберіть свій рік навчання та предмет.";
+    $("dirLead").textContent = d.full + (d.newWindow
+        ? ". Сервіс відкриється в новому вікні — зручно тримати його поряд із основним завданням."
+        : (d.categories ? ". Оберіть категорію та сервіс." : ". Оберіть свій рік навчання та предмет."));
     $("dirCrumb").textContent = d.full;
     const wrap = $("years"); wrap.innerHTML = "";
     d.years.forEach((y) => {
@@ -242,7 +361,8 @@ function renderDirection(d) {
                 if (!s.color) s.color = ACCENTS[i % ACCENTS.length];
                 g.append(s.links
                     ? makeMultiCard(s, d)
-                    : makeCard(s, s.name, s.desc, "Відкрити", () => { location.hash = "#" + d.id + "/" + s.id; }));
+                    : makeCard(s, s.name, s.desc, d.newWindow ? "Відкрити в новому вікні ↗" : "Відкрити",
+                        () => { location.hash = "#" + d.id + "/" + s.id; }, undefined, d.newWindow ? s.url : undefined));
             });
             sec.append(g);
         } else {
@@ -285,8 +405,14 @@ $("toHome").addEventListener("click", () => { location.hash = ""; });
 // Назад з сайту → на сторінку напрямку
 $("backBtn").addEventListener("click", () => { location.hash = "#" + location.hash.slice(1).split("/")[0]; });
 $("reloadBtn").addEventListener("click", () => { if (currentSite) frame.src = currentSite.url; });
-// Запасний варіант, якщо сайт забороняє вбудовування
-$("directBtn").addEventListener("click", () => { if (currentSite) location.href = currentSite.url; });
+// Запасний варіант, якщо сайт забороняє вбудовування: відкриваємо його в новому вікні,
+// а обгортка з поточною сторінкою лишається на місці (прогрес не втрачається)
+$("directBtn").addEventListener("click", () => {
+    if (!currentSite) return;
+    const a = document.createElement("a");
+    a.href = currentSite.url; a.target = "_blank"; a.rel = "noopener";
+    document.body.append(a); a.click(); a.remove();
+});
 
 window.addEventListener("hashchange", route);
 route();
