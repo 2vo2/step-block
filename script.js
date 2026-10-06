@@ -182,6 +182,58 @@ const DIRECTIONS = [
     }
 ];
 
+/* ==================================================================
+   StepSchool: клас → предмет → сайти
+   Клас:    id (унікальний, з префіксом school-), name, full (підпис),
+            school: true, years: ПРЕДМЕТИ класу (title = назва предмета, sites = сайти)
+   Сайт:    так само, як в академії (id, name, desc, logo, url або links)
+   Приклад заповнено лише для «5 клас», решту класів додайте так само.
+   ================================================================== */
+const SCHOOL_CLASSES = [
+    { id: "school-1", name: "1 клас", full: "StepSchool · 1 клас", school: true, years: [] },
+    { id: "school-2", name: "2 клас", full: "StepSchool · 2 клас", school: true, years: [] },
+    { id: "school-3", name: "3 клас", full: "StepSchool · 3 клас", school: true, years: [] },
+    { id: "school-4", name: "4 клас", full: "StepSchool · 4 клас", school: true, years: [] },
+    {
+        id: "school-5", name: "5 клас", full: "StepSchool · 5 клас", school: true,
+        years: [
+            {
+                title: "Інформатика", sites: [
+                    { id: "codeorg", name: "Code.org", desc: "Курси та «Година коду»", logo: "", url: "https://code.org/" },
+                    { id: "tinkercad", name: "TinkerCAD", desc: "3D-моделювання", logo: "", url: "https://www.tinkercad.com/" }
+                ]
+            },
+            {
+                title: "Математика", sites: [
+                    { id: "khan", name: "Khan Academy", desc: "Відеоуроки та вправи", logo: "", url: "https://www.khanacademy.org/" }
+                ]
+            },
+            {
+                title: "Творчість", sites: [
+                    { id: "canva", name: "Canva", desc: "Дизайн презентацій і постерів", logo: "", url: "https://www.canva.com/" }
+                ]
+            }
+        ]
+    },
+    { id: "school-6", name: "6 клас", full: "StepSchool · 6 клас", school: true, years: [] },
+    { id: "school-7", name: "7 клас", full: "StepSchool · 7 клас", school: true, years: [] },
+    { id: "school-8", name: "8 клас", full: "StepSchool · 8 клас", school: true, years: [] },
+    { id: "school-9", name: "9 клас", full: "StepSchool · 9 клас", school: true, years: [] },
+    { id: "school-10", name: "10 клас", full: "StepSchool · 10 клас", school: true, years: [] },
+    { id: "school-11", name: "11 клас", full: "StepSchool · 11 клас", school: true, years: [] }
+];
+
+// «Корисні посилання» StepSchool: сервіси відкриваються в новому вікні, є меню в обгортці.
+// Зараз використовується той самий список, що й в академії. Щоб зробити власний —
+// замініть years на свій масив категорій (title + sites).
+const SCHOOL_USEFUL = {
+    id: "school-useful", name: "Корисні посилання", full: "Підбірка корисних сервісів за категоріями",
+    school: true, categories: true, newWindow: true,
+    years: DIRECTIONS.find((d) => d.id === "useful").years
+};
+
+const ALL_DIRECTIONS = DIRECTIONS.concat(SCHOOL_CLASSES, [SCHOOL_USEFUL]);
+
 /* ==================== Перевірка: сторінку відкрито в SEB ====================
    SEB додає до user agent рядок "SEB/версія". Для тестів у звичайному
    браузері поставте REQUIRE_SEB = false (перед роздачею поверніть true).
@@ -204,11 +256,13 @@ if (REQUIRE_SEB && !/\bSEB\//i.test(navigator.userAgent)) {
 const $ = (id) => document.getElementById(id);
 const frame = $("frame");
 let currentSite = null, currentFrameUrl = "";
+let parentHash = "#academy";   // куди веде «До вибору …» зі сторінки напряму/класу
 
 // Автоматичні кольори карток: синій → зелений → помаранчевий (з палітри в style.css)
 const ACCENTS = ["var(--blue)", "var(--green)", "var(--amber)"];
 
 function pluralCats(n) { return n === 1 ? "категорія" : (n >= 2 && n <= 4 ? "категорії" : "категорій"); }
+function pluralSubj(n) { return n === 1 ? "предмет" : (n >= 2 && n <= 4 ? "предмети" : "предметів"); }
 function pluralYears(n) { return n === 1 ? "рік" : (n >= 2 && n <= 4 ? "роки" : "років"); }
 
 function logoBox(item) {
@@ -229,6 +283,7 @@ function makeCard(item, titleText, descText, goText, onClick, metaText, href) {
     card.className = "card";
     if (href) { card.href = href; card.target = "_blank"; card.rel = "noopener"; } else card.type = "button";
     if (item.color) card.style.setProperty("--accent", item.color);
+    if (item.color === "var(--amber)") card.classList.add("on-light");   // темний текст на жовтій/помаранчевій плашці
     const h = document.createElement("h2"); h.textContent = titleText;
     card.append(logoBox(item), h);
     if (metaText) { const m = document.createElement("div"); m.className = "meta"; m.textContent = metaText; card.append(m); }
@@ -257,6 +312,97 @@ function makeMultiCard(item, d) {
     });
     card.append(logoBox(item), h, p, box);
     return card;
+}
+
+// --- Нова головна: вибір розділу (StepSchool / ITSTEP Academy) ---
+// Змінюйте назви, описи, логотипи (шлях у logo) та кольори тут
+const LANDING_CARDS = [
+    { name: "StepSchool", desc: "Класи, предмети та корисні посилання", logo: "", color: "var(--green)", hash: "#school" },
+    { name: "ITSTEP Academy", desc: "Курси, напрями та корисні посилання", logo: "", color: "var(--blue)", hash: "#academy" }
+];
+
+function makeHeader(title = "StepBlock", mark = "IT") {
+    const header = document.createElement("header");
+    header.className = "top";
+    header.innerHTML = '<div class="top-inner"><div class="brand"><div class="brand-mark">' + mark + '</div>' +
+        '<div class="brand-name">' + title + '<span>Безпечне середовище для занять</span></div></div></div>';
+    return header;
+}
+
+// Головна
+const landing = document.createElement("div");
+landing.className = "view"; landing.id = "landing";
+landing.append(makeHeader());
+const landingMain = document.createElement("main");
+landingMain.className = "landing-main";
+landingMain.innerHTML = '<h1>Оберіть розділ</h1><p class="lead">Натисніть на картку, щоб продовжити.</p>';
+const choice = document.createElement("div");
+choice.className = "grid big choice";
+LANDING_CARDS.forEach((c) => choice.append(makeCard(c, c.name, c.desc, "Відкрити", () => { location.hash = c.hash; })));
+landingMain.append(choice);
+landing.append(landingMain);
+const landingFooter = document.createElement("footer");
+landingFooter.textContent = "ITSTEP Academy";
+landing.append(landingFooter);
+
+// StepSchool: вибір класу
+const school = document.createElement("div");
+school.className = "view"; school.id = "school";
+school.append(makeHeader("StepBlock", "SB"));
+const schoolMain = document.createElement("main");
+const schoolBack = document.createElement("div");
+schoolBack.className = "dir-head";
+const schoolBackBtn = document.createElement("button");
+schoolBackBtn.type = "button"; schoolBackBtn.className = "btn btn-light"; schoolBackBtn.textContent = "← На головну";
+schoolBackBtn.addEventListener("click", () => { location.hash = ""; });
+schoolBack.append(schoolBackBtn);
+schoolMain.append(schoolBack);
+
+const hero = document.createElement("section");
+hero.className = "hero";
+hero.innerHTML = '<h1>StepSchool</h1><p class="lead">Оберіть клас, щоб відкрити потрібні предмети та сайти.</p>';
+schoolMain.append(hero);
+
+const classGrid = document.createElement("div");
+classGrid.className = "grid";
+// Спочатку виділена жовта картка «Корисні посилання», далі класи
+const usefulCard = makeCard(SCHOOL_USEFUL, SCHOOL_USEFUL.name, SCHOOL_USEFUL.full, "Відкрити",
+    () => { location.hash = "#" + SCHOOL_USEFUL.id; });
+usefulCard.classList.add("feature");
+classGrid.append(usefulCard);
+const SCHOOL_ACCENTS = ["var(--green)", "var(--amber)"];
+SCHOOL_CLASSES.forEach((c, i) => {
+    if (!c.color) c.color = SCHOOL_ACCENTS[i % SCHOOL_ACCENTS.length];
+    const n = c.years.length;
+    classGrid.append(makeCard(c, c.name, c.full, "Відкрити",
+        () => { location.hash = "#" + c.id; }, n ? n + " " + pluralSubj(n) : "Незабаром"));
+});
+schoolMain.append(classGrid);
+school.append(schoolMain);
+const schoolFooter = document.createElement("footer");
+schoolFooter.textContent = "StepSchool";
+school.append(schoolFooter);
+
+document.body.append(landing, school);
+
+// На сторінці ITSTEP Academy (колишня головна) — кнопка «На головну»
+const academyMain = document.querySelector("#home main");
+if (academyMain) {
+    const bar = document.createElement("div");
+    bar.className = "dir-head";
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "btn btn-light"; b.textContent = "← На головну";
+    b.addEventListener("click", () => { location.hash = ""; });
+    bar.append(b);
+    academyMain.prepend(bar);
+    const h1 = academyMain.querySelector("h1");
+    const lead = academyMain.querySelector(".lead");
+    if (h1 && lead) {
+        const heroBlock = document.createElement("section");
+        heroBlock.className = "hero";
+        academyMain.insertBefore(heroBlock, h1);
+        heroBlock.append(h1, lead);
+    }
 }
 
 // --- Кнопки в шапці (відкриваються в новому вікні) ---
@@ -290,14 +436,15 @@ if (viewerBar) {
     viewerBar.insertBefore(nav, viewerBar.querySelector(".hint"));
 }
 
-// Випадаюче меню на панелі обгортки: сервіси з напряму, де newWindow: true (відкриваються в новому вікні)
-const helperDir = DIRECTIONS.find((d) => d.newWindow);
-if (viewerBar && helperDir) {
+// Випадаюче меню на панелі обгортки: сервіси з напряму «Корисні посилання» (newWindow: true).
+// У StepSchool показується її власний список (SCHOOL_USEFUL), в академії — список академії.
+const ACADEMY_USEFUL = DIRECTIONS.find((d) => d.newWindow);
+let fillHelperMenu = () => {};
+if (viewerBar && ACADEMY_USEFUL) {
     const menu = document.createElement("div");
     menu.className = "menu";
     const toggle = document.createElement("button");
     toggle.type = "button"; toggle.className = "btn btn-ghost";
-    toggle.textContent = helperDir.name + " ▾";
     toggle.setAttribute("aria-haspopup", "true");
     toggle.setAttribute("aria-expanded", "false");
     const pop = document.createElement("div");
@@ -308,24 +455,29 @@ if (viewerBar && helperDir) {
         toggle.setAttribute("aria-expanded", String(open));
     };
 
-    helperDir.years.forEach((cat) => {
-        if (!cat.sites.length) return;
-        const h = document.createElement("div");
-        h.className = "menu-cat"; h.textContent = cat.title;
-        pop.append(h);
-        cat.sites.forEach((s) => {
-            const items = s.links
-                ? s.links.map((l) => ({ name: s.name + " — " + l.name, url: l.url }))
-                : [{ name: s.name, url: s.url }];
-            items.forEach((x) => {
-                const a = document.createElement("a");
-                a.className = "menu-item"; a.href = x.url; a.target = "_blank"; a.rel = "noopener";
-                a.textContent = x.name + " ↗";
-                a.addEventListener("click", () => setOpen(false));
-                pop.append(a);
+    fillHelperMenu = (dir) => {
+        pop.innerHTML = "";
+        toggle.textContent = dir.name + " ▾";
+        dir.years.forEach((cat) => {
+            if (!cat.sites.length) return;
+            const h = document.createElement("div");
+            h.className = "menu-cat"; h.textContent = cat.title;
+            pop.append(h);
+            cat.sites.forEach((s) => {
+                const items = s.links
+                    ? s.links.map((l) => ({ name: s.name + " — " + l.name, url: l.url }))
+                    : [{ name: s.name, url: s.url }];
+                items.forEach((x) => {
+                    const a = document.createElement("a");
+                    a.className = "menu-item"; a.href = x.url; a.target = "_blank"; a.rel = "noopener";
+                    a.textContent = x.name + " ↗";
+                    a.addEventListener("click", () => setOpen(false));
+                    pop.append(a);
+                });
             });
         });
-    });
+    };
+    fillHelperMenu(ACADEMY_USEFUL);
 
     toggle.addEventListener("click", (e) => { e.stopPropagation(); setOpen(!menu.classList.contains("open")); });
     document.addEventListener("click", (e) => { if (!menu.contains(e.target)) setOpen(false); });
@@ -340,7 +492,9 @@ if (viewerBar && helperDir) {
 DIRECTIONS.forEach((d, i) => {
     if (!d.color) d.color = ACCENTS[i % ACCENTS.length];
     const n = d.years.length;
-    $("dirGrid").append(makeCard(d, d.name, d.full, "Обрати", () => { location.hash = "#" + d.id; }, d.categories ? n + " " + pluralCats(n) : n + " " + pluralYears(n) + " навчання"));
+    const dirCard = makeCard(d, d.name, d.full, "Обрати", () => { location.hash = "#" + d.id; }, d.categories ? n + " " + pluralCats(n) : n + " " + pluralYears(n) + " навчання");
+    if (d.newWindow) dirCard.classList.add("feature");
+    $("dirGrid").append(dirCard);
 });
 
 // --- Сторінка 2: роки та предмети ---
@@ -348,9 +502,19 @@ function renderDirection(d) {
     $("dirTitle").textContent = d.name;
     $("dirLead").textContent = d.full + (d.newWindow
         ? ". Сервіс відкриється в новому вікні — зручно тримати його поряд із основним завданням."
-        : (d.categories ? ". Оберіть категорію та сервіс." : ". Оберіть свій рік навчання та предмет."));
+        : (d.school ? ". Оберіть предмет і сервіс." : d.categories ? ". Оберіть категорію та сервіс." : ". Оберіть свій рік навчання та предмет."));
     $("dirCrumb").textContent = d.full;
+    $("toHome").textContent = d.school ? "← До вибору класу" : "← До вибору напрямку";
+    const bn = document.querySelector("#direction .brand-name");
+    if (bn && bn.firstChild) bn.firstChild.textContent = d.school ? "StepSchool" : "ITSTEP Academy";
+    const bm = document.querySelector("#direction .brand-mark");
+    if (bm) bm.textContent = d.school ? "SS" : "IT";
     const wrap = $("years"); wrap.innerHTML = "";
+    if (!d.years.length) {
+        const e0 = document.createElement("div"); e0.className = "empty";
+        e0.textContent = d.school ? "Предмети для цього класу ще не додано." : "Ще нічого не додано.";
+        wrap.append(e0);
+    }
     d.years.forEach((y) => {
         const sec = document.createElement("section"); sec.className = "year";
         const t = document.createElement("div"); t.className = "year-title"; t.textContent = y.title;
@@ -366,7 +530,7 @@ function renderDirection(d) {
             });
             sec.append(g);
         } else {
-            const e = document.createElement("div"); e.className = "empty"; e.textContent = "Предмети для цього року ще не додано.";
+            const e = document.createElement("div"); e.className = "empty"; e.textContent = d.school ? "Сайти для цього предмета ще не додано." : "Предмети для цього року ще не додано.";
             sec.append(e);
         }
         wrap.append(sec);
@@ -374,10 +538,17 @@ function renderDirection(d) {
 }
 
 // --- Маршрутизація через #hash (працює кнопка «назад» у SEB) ---
+function setTheme(isSchool) { document.body.classList.toggle("theme-school", !!isSchool); }
+
 function route() {
-    const [dirId, siteId, linkId] = location.hash.slice(1).split("/");
-    const d = DIRECTIONS.find((x) => x.id === dirId);
-    if (!d) { show("home"); document.title = "StepBlock"; return; }
+    const hash = location.hash.slice(1);
+    if (hash === "school") { setTheme(true); show("school"); document.title = "StepSchool — StepBlock"; return; }
+    if (hash === "academy") { setTheme(false); show("home"); document.title = "ITSTEP Academy — StepBlock"; return; }
+    const [dirId, siteId, linkId] = hash.split("/");
+    const d = ALL_DIRECTIONS.find((x) => x.id === dirId);
+    if (!d) { setTheme(false); show("landing"); document.title = "StepBlock"; return; }
+    setTheme(d.school);
+    parentHash = d.school ? "#school" : "#academy";
 
     if (siteId) {
         const s = d.years.flatMap((y) => y.sites).find((x) => x.id === siteId);
@@ -387,6 +558,7 @@ function route() {
             $("barTitle").textContent = d.name + " · " + s.name + (s.links ? " · " + target.name : "");
             if (currentFrameUrl !== target.url) { frame.src = target.url; currentFrameUrl = target.url; }
             document.title = target.name + " — StepBlock";
+            fillHelperMenu(d.school ? SCHOOL_USEFUL : ACADEMY_USEFUL);
             show("viewer"); return;
         }
     }
@@ -401,7 +573,7 @@ function show(view) {
     window.scrollTo(0, 0);
 }
 
-$("toHome").addEventListener("click", () => { location.hash = ""; });
+$("toHome").addEventListener("click", () => { location.hash = parentHash; });
 // Назад з сайту → на сторінку напрямку
 $("backBtn").addEventListener("click", () => { location.hash = "#" + location.hash.slice(1).split("/")[0]; });
 $("reloadBtn").addEventListener("click", () => { if (currentSite) frame.src = currentSite.url; });

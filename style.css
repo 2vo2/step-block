@@ -137,3 +137,57 @@ a.card { text-decoration: none; color: inherit; }
 .menu-cat { padding: 10px 10px 4px; font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 .menu-item { display: block; padding: 9px 10px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 15px; }
 .menu-item:hover, .menu-item:focus-visible { background: var(--paper); color: var(--blue); }
+
+/* ---------- Нова головна та StepSchool ---------- */
+body[data-view="landing"] #landing,
+body[data-view="school"] #school { display: flex; flex-direction: column; min-height: 100%; }
+main.landing-main { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.landing-main .lead { margin-left: auto; margin-right: auto; }
+.grid.big.choice { width: 100%; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; }
+@media (max-width: 760px) { .grid.big.choice { grid-template-columns: minmax(0, 420px); } }
+
+/* ============================================================
+   СПІЛЬНЕ ОФОРМЛЕННЯ (bento): картки, блок-заголовок, виділена картка.
+   Діє і в ITSTEP Academy, і в StepSchool; кольори беруться зі змінних теми.
+   ============================================================ */
+.card { border-radius: 22px; }
+.logo { border-radius: 16px; }
+.card .meta { display: inline-block; align-self: flex-start; padding: 4px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; color: #fff; background: var(--accent, var(--blue)); }
+.card.on-light .meta { color: var(--ink); }
+
+/* Виділена картка (жовта/помаранчева) */
+.card.feature { background: var(--amber); border-color: var(--amber); }
+.card.feature::before { display: none; }
+.card.feature .logo { background: rgba(255,255,255,.6); }
+.card.feature h2, .card.feature p, .card.feature .go, .card.feature .logo .mono { color: var(--ink); }
+
+/* Блок-заголовок на головних сторінках розділів */
+.hero { position: relative; overflow: hidden; margin-top: 20px; padding: 36px 32px; border-radius: 24px; background: var(--blue); color: #fff; }
+.hero > * { position: relative; z-index: 1; }
+.hero h1 { color: #fff; margin: 0; }
+.hero .lead { color: rgba(255,255,255,.88); max-width: 34ch; }
+.hero::before { content: ""; position: absolute; right: -40px; top: -40px; width: 190px; height: 190px; border-radius: 50%; background: var(--amber); }
+.hero::after { content: ""; position: absolute; right: 120px; bottom: -56px; width: 130px; height: 130px; border-radius: 50%; background: var(--green); }
+@media (max-width: 600px) { .hero::before, .hero::after { display: none; } }
+
+/* ============================================================
+   ТЕМА StepSchool (body.theme-school): жовтий, лайм, темно-зелений
+   Щоб змінити кольори школи — правте тільки цей блок змінних.
+   ============================================================ */
+body.theme-school {
+    --blue: #003B23;            /* темно-зелений: шапка, основні кнопки */
+    --blue-dark: #002817;       /* темно-зелений при наведенні */
+    --blue-light: #054329;      /* акценти, фокус */
+    --green: #A3E512;           /* лайм: заклики до дії, смужки */
+    --amber: #FFDE00;           /* жовтий: виділені картки, лінія під шапкою */
+    --ink: #1E1E1E;             /* текст і заголовки */
+    --ink-soft: #2B2B2B;
+    --paper: #F4F5F7;
+}
+.theme-school .brand-mark { background: var(--green); color: var(--blue); }
+.theme-school .logo .mono { color: var(--blue); }
+.theme-school .card .meta { color: var(--ink); background: var(--accent, var(--green)); }
+.theme-school .links .btn-main { background: var(--green); color: var(--ink); }
+.theme-school .links .btn-main:hover { filter: brightness(.94); background: var(--green); }
+.theme-school .year-title::before { background: var(--green); }
+.theme-school .menu-item:hover, .theme-school .menu-item:focus-visible { color: var(--blue); }
