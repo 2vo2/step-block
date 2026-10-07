@@ -348,7 +348,7 @@ landing.append(landingFooter);
 // StepSchool: вибір класу
 const school = document.createElement("div");
 school.className = "view"; school.id = "school";
-school.append(makeHeader("StepBlock", "SB"));
+school.append(makeHeader("StepBlock", "IT"));
 const schoolMain = document.createElement("main");
 const schoolBack = document.createElement("div");
 schoolBack.className = "dir-head";
