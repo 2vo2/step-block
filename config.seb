@@ -247,7 +247,7 @@
     <key>hashedAdminPassword</key>
     <string />
     <key>hashedQuitPassword</key>
-    <string>EAADA5248B9D8AF3A1096B63A42BEC7D7EB5F82E6428C6EE8DC8785A735FC5AF</string>
+    <string>DBC5FABCC3F24A1D40AB76B59D719710F72821F70BBB64F567782E3F71AA09B9</string>
     <key>hideBrowserWindowToolbar</key>
     <false />
     <key>hookKeys</key>
@@ -2243,7 +2243,7 @@
         <key>regex</key>
         <false />
         <key>expression</key>
-        <string>*t.me*</string>
+        <string>t.me</string>
         <key>action</key>
         <integer>0</integer>
       </dict>
@@ -2353,7 +2353,7 @@
         <key>regex</key>
         <false />
         <key>expression</key>
-        <string>*x.com*</string>
+        <string>x.com</string>
         <key>action</key>
         <integer>0</integer>
       </dict>
@@ -2563,7 +2563,7 @@
         <key>regex</key>
         <false />
         <key>expression</key>
-        <string>*[google.com/search](https://google.com/search)*</string>
+        <string>*google.com/search*</string>
         <key>action</key>
         <integer>0</integer>
       </dict>
@@ -2594,6 +2594,1726 @@
         <false />
         <key>expression</key>
         <string>*duckduckgo.com*</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>yahoo.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>yandex.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>yandex.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>ya.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>ecosia.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>search.brave.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>startpage.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>qwant.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>baidu.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>ukr.net</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>meta.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>bard.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>grok.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>x.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>poe.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>mistral.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>chat.mistral.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>you.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>blackbox.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>phind.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>huggingface.co</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>qwen.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>kimi.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>meta.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>pi.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>cohere.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>notebooklm.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>aistudio.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gamma.app</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>monica.im</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>chatbotapp.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>writesonic.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>jasper.ai</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>quillbot.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gpt4free.io</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>brainly.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>brainly.in</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>znanija.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gdz.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gdz.com.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>reshak.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gdz.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>chegg.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>coursehero.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>quizlet.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>studocu.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>socratic.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>slader.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>bartleby.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>numerade.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>homework.study.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>stepik.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>classnotes.org.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>vseosvita.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>naurok.com.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>miyklas.com.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>pidruchnyk.com.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>youtube-nocookie.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>fb.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>pinterest.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>linkedin.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>snapchat.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>tumblr.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>vk.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>ok.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>vimeo.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>dailymotion.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>rutube.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>likee.video</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>threads.net</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>bsky.app</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>9gag.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>imgur.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>telegram.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>telegram.me</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>discordapp.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>wa.me</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>signal.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>skype.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>zoom.us</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>slack.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>teams.live.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>chat.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>meet.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>omegle.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>tellonym.me</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>translate.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>translate.google.com.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>deepl.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>reverso.net</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>translate.yandex.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>linguee.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>promt.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>pastebin.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gist.github.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gist.githubusercontent.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>paste.ee</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>hastebin.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>ideone.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>jsfiddle.net</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>codepen.io</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>codesandbox.io</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>stackblitz.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>replit.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>programiz.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>geeksforgeeks.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>tutorialspoint.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>stackoverflow.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>stackexchange.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>codeforces.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>leetcode.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>hackerrank.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>glitch.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>jdoodle.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>tio.run</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>godbolt.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>dropbox.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>mega.nz</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>mega.io</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>onedrive.live.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>1drv.ms</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>wetransfer.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>mediafire.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>gmail.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>mail.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>mail.ru</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>outlook.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>outlook.live.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>proton.me</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>i.ua</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>icloud.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>hide.me</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>hidemyass.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>proxysite.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>croxyproxy.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>kproxy.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>4everproxy.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>hidester.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>whoer.net</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>nordvpn.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>expressvpn.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>protonvpn.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>windscribe.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>tunnelbear.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>cloudflare-warp.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>1.1.1.1</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>psiphon.ca</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>torproject.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>browsec.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>ultrasurf.us</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>vpnbook.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>freeproxy.io</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>webproxy.to</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>anonymouse.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>proxyium.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>play.google.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>apps.apple.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>apps.microsoft.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>softonic.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>uptodown.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>filehippo.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>cnet.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>sourceforge.net</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>wikipedia.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>wikimedia.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>wiktionary.org</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>fandom.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>quora.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>medium.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>dev.to</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>habr.com</string>
+        <key>action</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>active</key>
+        <true />
+        <key>regex</key>
+        <false />
+        <key>expression</key>
+        <string>uk.wikipedia.org</string>
         <key>action</key>
         <integer>0</integer>
       </dict>
