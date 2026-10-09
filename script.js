@@ -321,7 +321,7 @@ const LANDING_CARDS = [
     { name: "ITSTEP Academy", desc: "Курси, напрями та корисні посилання", logo: "", color: "var(--blue)", hash: "#academy" }
 ];
 
-function makeHeader(title = "ITSTEP Academy", mark = "IT") {
+function makeHeader(title = "StepBlock", mark = "IT") {
     const header = document.createElement("header");
     header.className = "top";
     header.innerHTML = '<div class="top-inner"><div class="brand"><div class="brand-mark">' + mark + '</div>' +
@@ -348,7 +348,7 @@ landing.append(landingFooter);
 // StepSchool: вибір класу
 const school = document.createElement("div");
 school.className = "view"; school.id = "school";
-school.append(makeHeader("StepSchool", "SS"));
+school.append(makeHeader("StepBlock", "IT"));
 const schoolMain = document.createElement("main");
 const schoolBack = document.createElement("div");
 schoolBack.className = "dir-head";
@@ -404,111 +404,6 @@ if (academyMain) {
         heroBlock.append(h1, lead);
     }
 }
-
-// --- Пошук предмету чи корисного посилання ---
-// Шукає по всіх розділах: академія, StepSchool та «Корисні посилання».
-// Результат-сторінка відкривається в обгортці, корисні посилання — у новому вікні.
-const searchBoxes = [];
-
-// Однакове порівняння для кирилиці й схожої латиниці (діти часто друкують «i», «o», «a» латиницею)
-function normSearch(s) {
-    return String(s || "").toLowerCase().replace(/[’`ʼ]/g, "'")
-        .replace(/а/g, "a").replace(/е/g, "e").replace(/і/g, "i").replace(/о/g, "o")
-        .replace(/р/g, "p").replace(/с/g, "c").replace(/х/g, "x").replace(/у/g, "y");
-}
-
-function buildSearchIndex() {
-    if (buildSearchIndex.cache) return buildSearchIndex.cache;
-    const items = [];
-    const sameUseful = SCHOOL_USEFUL.years === ACADEMY_USEFUL.years;   // спільний список — показуємо один раз
-    const seenExternal = new Set();
-    ALL_DIRECTIONS.forEach((d) => {
-        const root = d.school ? "StepSchool" : "ITSTEP Academy";
-        items.push({ title: d.name, sub: d.school ? d.full : root + " · " + d.full, kind: "page", hash: "#" + d.id,
-                     text: [d.name, d.full, root].join(" ") });
-        d.years.forEach((y) => {
-            y.sites.forEach((s) => {
-                const variants = s.links
-                    ? s.links.map((l) => ({ label: s.name + " — " + l.name, url: l.url, hash: "#" + d.id + "/" + s.id + "/" + l.id }))
-                    : [{ label: s.name, url: s.url, hash: "#" + d.id + "/" + s.id }];
-                variants.forEach((v) => {
-                    const text = [v.label, s.desc, y.title, d.name, d.full, root].join(" ");
-                    if (d.newWindow) {
-                        const key = v.url + "|" + (sameUseful ? "" : d.id);
-                        if (seenExternal.has(key)) return;
-                        seenExternal.add(key);
-                        const ctx = sameUseful ? d.name + " · " + y.title : root + " · " + d.name + " · " + y.title;
-                        items.push({ title: v.label, sub: ctx, kind: "external", url: v.url, text });
-                    } else {
-                        items.push({ title: v.label, sub: root + " · " + d.name + " · " + y.title, kind: "page", hash: v.hash, text });
-                    }
-                });
-            });
-        });
-    });
-    items.forEach((it) => { it.hay = normSearch(it.text); });
-    buildSearchIndex.cache = items;
-    return items;
-}
-
-function runSearch(query) {
-    const tokens = normSearch(query).split(/\s+/).filter(Boolean);
-    if (!tokens.length) return null;
-    return buildSearchIndex().filter((it) => tokens.every((t) => it.hay.includes(t)));
-}
-
-// host — контейнер сторінки, toHide — що ховати під час пошуку, before — перед чим вставити поле
-function attachSearch(host, toHide, before) {
-    const wrap = document.createElement("div");
-    wrap.className = "search";
-    const input = document.createElement("input");
-    input.type = "search";
-    input.placeholder = "Пошук предмету чи корисного посилання…";
-    input.autocomplete = "off"; input.spellcheck = false;
-    input.setAttribute("aria-label", "Пошук предмету чи корисного посилання");
-    wrap.append(input);
-    const box = document.createElement("div");
-    box.className = "search-results";
-    box.style.display = "none";
-    host.insertBefore(wrap, before);
-    host.insertBefore(box, before);
-
-    const LIMIT = 40;
-    const render = () => {
-        const found = runSearch(input.value);
-        toHide.forEach((el) => { el.style.display = found === null ? "" : "none"; });
-        box.innerHTML = "";
-        if (found === null) { box.style.display = "none"; return; }
-        box.style.display = "";
-        const note = document.createElement("div");
-        note.className = "search-note";
-        note.textContent = !found.length ? "Нічого не знайдено. Спробуйте інше слово."
-            : (found.length > LIMIT ? "Показано перші " + LIMIT + " з " + found.length + ". Уточніть запит." : "Знайдено: " + found.length);
-        box.append(note);
-        found.slice(0, LIMIT).forEach((it) => {
-            const el = document.createElement(it.kind === "external" ? "a" : "button");
-            el.className = "result";
-            if (it.kind === "external") { el.href = it.url; el.target = "_blank"; el.rel = "noopener"; }
-            else { el.type = "button"; el.addEventListener("click", () => { location.hash = it.hash; }); }
-            const t = document.createElement("span"); t.className = "r-title"; t.textContent = it.title;
-            const sub = document.createElement("span"); sub.className = "r-sub"; sub.textContent = it.sub;
-            const go = document.createElement("span"); go.className = "r-go";
-            go.textContent = it.kind === "external" ? "Відкрити в новому вікні ↗" : "Відкрити";
-            el.append(t, sub, go);
-            box.append(el);
-        });
-    };
-    input.addEventListener("input", render);
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") { const first = box.querySelector(".result"); if (first) first.click(); }
-        if (e.key === "Escape") { input.value = ""; render(); }
-    });
-    searchBoxes.push({ reset: () => { if (input.value) { input.value = ""; render(); } } });
-}
-
-attachSearch(landingMain, [choice], choice);
-if (academyMain && $("dirGrid")) attachSearch(academyMain, [$("dirGrid")], $("dirGrid"));
-attachSearch(schoolMain, [classGrid], classGrid);
 
 // --- Кнопки в шапці (відкриваються в новому вікні) ---
 const HEADER_LINKS = [
@@ -646,7 +541,6 @@ function renderDirection(d) {
 function setTheme(isSchool) { document.body.classList.toggle("theme-school", !!isSchool); }
 
 function route() {
-    searchBoxes.forEach((b) => b.reset());   // очищаємо пошук при переході
     const hash = location.hash.slice(1);
     if (hash === "school") { setTheme(true); show("school"); document.title = "StepSchool — StepBlock"; return; }
     if (hash === "academy") { setTheme(false); show("home"); document.title = "ITSTEP Academy — StepBlock"; return; }

@@ -191,18 +191,3 @@ body.theme-school {
 .theme-school .links .btn-main:hover { filter: brightness(.94); background: var(--green); }
 .theme-school .year-title::before { background: var(--green); }
 .theme-school .menu-item:hover, .theme-school .menu-item:focus-visible { color: var(--blue); }
-
-/* ---------- Пошук ---------- */
-.search { margin-top: 24px; width: 100%; }
-.landing-main .search { display: flex; justify-content: center; }
-.search input { width: 100%; max-width: 560px; padding: 14px 18px; font-size: 17px; font-family: inherit; color: var(--ink); background: var(--card); border: 2px solid var(--line); border-radius: 14px; }
-.search input:focus { border-color: var(--blue); outline: none; }
-.search input:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 2px; }
-.search-results { margin-top: 20px; width: 100%; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-.search-note { grid-column: 1 / -1; color: var(--muted); font-size: 15px; text-align: left; }
-.result { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 14px 22px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-align: left; text-decoration: none; color: inherit; font: inherit; cursor: pointer; }
-.result::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--accent, var(--blue)); }
-.result:hover { border-color: var(--blue); }
-.result .r-title { font-weight: 700; font-size: 16px; color: var(--ink); }
-.result .r-sub { font-size: 13px; color: var(--muted); }
-.result .r-go { margin-top: 2px; font-size: 13px; font-weight: 600; color: var(--blue); }
