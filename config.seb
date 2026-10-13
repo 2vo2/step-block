@@ -481,7 +481,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -503,7 +503,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -525,7 +525,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -547,7 +547,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -569,7 +569,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -591,7 +591,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -613,7 +613,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -635,7 +635,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -657,7 +657,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -679,7 +679,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -701,7 +701,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -723,7 +723,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -745,7 +745,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -767,7 +767,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -789,7 +789,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -811,7 +811,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -833,7 +833,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -855,7 +855,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -877,7 +877,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -899,7 +899,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -921,7 +921,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -943,7 +943,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -965,7 +965,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -987,7 +987,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1009,7 +1009,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1031,7 +1031,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1053,7 +1053,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1075,7 +1075,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1097,7 +1097,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1119,7 +1119,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1141,7 +1141,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1163,7 +1163,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1185,7 +1185,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1251,7 +1251,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1273,7 +1273,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1295,7 +1295,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1317,7 +1317,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1339,7 +1339,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1361,7 +1361,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1383,7 +1383,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1405,7 +1405,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1427,7 +1427,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1449,7 +1449,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1471,7 +1471,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1493,7 +1493,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1515,7 +1515,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1537,7 +1537,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1559,7 +1559,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1581,7 +1581,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1603,7 +1603,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1625,7 +1625,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1647,7 +1647,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1669,7 +1669,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1691,7 +1691,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1713,7 +1713,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1735,7 +1735,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1757,7 +1757,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1779,7 +1779,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1801,7 +1801,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1823,7 +1823,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1845,7 +1845,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1867,7 +1867,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1889,7 +1889,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1911,7 +1911,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1933,7 +1933,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1955,7 +1955,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1977,7 +1977,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -1999,7 +1999,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -2021,7 +2021,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
@@ -2043,7 +2043,7 @@
         <key>os</key>
         <integer>1</integer>
         <key>strongKill</key>
-        <false />
+        <true />
         <key>user</key>
         <string />
         <key>windowHandlingProcess</key>
