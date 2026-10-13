@@ -220,7 +220,17 @@ const SCHOOL_CLASSES = [
     { id: "school-8", name: "8 клас", full: "StepSchool · 8 клас", school: true, years: [] },
     { id: "school-9", name: "9 клас", full: "StepSchool · 9 клас", school: true, years: [] },
     { id: "school-10", name: "10 клас", full: "StepSchool · 10 клас", school: true, years: [] },
-    { id: "school-11", name: "11 клас", full: "StepSchool · 11 клас", school: true, years: [] }
+    {
+        id: "school-11", name: "11 клас", full: "StepSchool · 11 клас", school: true,
+        years: [
+            {
+                title: "IT LABORATORY", sites: [
+                    { id: "csharp", name: "Програмування на C#", desc: "Онлайн-компілятор C#", logo: "", url: "https://www.onlinegdb.com/online_csharp_compiler" },
+                    { id: "dataanalysis", name: "Аналіз даних", desc: "Google Таблиці", logo: "", url: "https://docs.google.com/spreadsheets/" }
+                ]
+            }
+        ]
+    }
 ];
 
 // «Корисні посилання» StepSchool: сервіси відкриваються в новому вікні, є меню в обгортці.
