@@ -143,7 +143,7 @@ body[data-view="landing"] #landing,
 body[data-view="school"] #school { display: flex; flex-direction: column; min-height: 100%; }
 main.landing-main { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .landing-main .lead { margin-left: auto; margin-right: auto; }
-.grid.big.choice { width: 100%; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; }
+.grid.big.choice { width: 100%; grid-template-columns: repeat(auto-fit, minmax(240px, 300px)); justify-content: center; }
 @media (max-width: 760px) { .grid.big.choice { grid-template-columns: minmax(0, 420px); } }
 
 /* ============================================================
@@ -206,3 +206,25 @@ body.theme-school {
 .result .r-title { font-weight: 700; font-size: 16px; color: var(--ink); }
 .result .r-sub { font-size: 13px; color: var(--muted); }
 .result .r-go { margin-top: 2px; font-size: 13px; font-weight: 600; color: var(--blue); }
+
+/* ============================================================
+   ТЕМА «Олімпіади» (body.theme-olympiad): фіолетовий, золото, бірюза
+   Щоб змінити кольори — правте тільки цей блок змінних.
+   ============================================================ */
+body.theme-olympiad {
+    --blue: #3B1F8F;            /* глибокий фіолетовий: шапка, основні кнопки */
+    --blue-dark: #2A1566;
+    --blue-light: #5B3FD1;
+    --green: #19C3A6;           /* бірюза: заклики до дії */
+    --amber: #FFB020;           /* золото: акценти, лінія під шапкою */
+    --ink: #1B1530;
+    --ink-soft: #2A2147;
+    --paper: #F6F4FB;
+    --line: #E4E0F1;
+}
+.theme-olympiad .brand-mark { background: var(--amber); color: var(--ink); }
+.theme-olympiad .logo .mono { color: var(--blue); }
+.theme-olympiad .year-title::before { background: var(--amber); }
+.theme-olympiad .links .btn-main { background: var(--amber); color: var(--ink); }
+/* Під час олімпіади в обгортці лишаємо тільки «Назад» і «Оновити» */
+.theme-olympiad .bar-links, .theme-olympiad .menu, .theme-olympiad #directBtn, .theme-olympiad .hint { display: none !important; }

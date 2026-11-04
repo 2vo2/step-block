@@ -242,7 +242,23 @@ const SCHOOL_USEFUL = {
     years: DIRECTIONS.find((d) => d.id === "useful").years
 };
 
-const ALL_DIRECTIONS = DIRECTIONS.concat(SCHOOL_CLASSES, [SCHOOL_USEFUL]);
+/* ==================================================================
+   Олімпіади: розділи (title) → картки олімпіад.
+   Сторінка олімпіади — olympiad.html?o=<id>; задачі та налаштування
+   кожної олімпіади лежать у olympiad_config.js під тим самим <id>.
+   ================================================================== */
+const OLYMPIADS = {
+    id: "olympiads", name: "Олімпіади", full: "Змагання та олімпіади", olympiad: true, categories: true,
+    years: [
+        {
+            title: "Python", sites: [
+                { id: "python-demo", name: "Олімпіада з Python (демо)", desc: "3 задачі · вхід за ПІБ і паролем", logo: "", url: "olympiad.html?o=python-demo" }
+            ]
+        }
+    ]
+};
+
+const ALL_DIRECTIONS = DIRECTIONS.concat(SCHOOL_CLASSES, [SCHOOL_USEFUL], [OLYMPIADS]);
 
 /* ==================== Перевірка: сторінку відкрито в SEB ====================
    SEB додає до user agent рядок "SEB/версія". Для тестів у звичайному
@@ -328,7 +344,8 @@ function makeMultiCard(item, d) {
 // Змінюйте назви, описи, логотипи (шлях у logo) та кольори тут
 const LANDING_CARDS = [
     { name: "StepSchool", desc: "Класи, предмети та корисні посилання", logo: "", color: "var(--green)", hash: "#school" },
-    { name: "ITSTEP Academy", desc: "Курси, напрями та корисні посилання", logo: "", color: "var(--blue)", hash: "#academy" }
+    { name: "ITSTEP Academy", desc: "Курси, напрями та корисні посилання", logo: "", color: "var(--blue)", hash: "#academy" },
+    { name: "Олімпіади", desc: "Змагання та олімпіади з програмування", logo: "", color: "var(--amber)", hash: "#olympiads" }
 ];
 
 function makeHeader(title = "ITSTEP Academy", mark = "IT") {
@@ -433,7 +450,7 @@ function buildSearchIndex() {
     const sameUseful = SCHOOL_USEFUL.years === ACADEMY_USEFUL.years;   // спільний список — показуємо один раз
     const seenExternal = new Set();
     ALL_DIRECTIONS.forEach((d) => {
-        const root = d.school ? "StepSchool" : "ITSTEP Academy";
+        const root = d.olympiad ? "Олімпіади" : (d.school ? "StepSchool" : "ITSTEP Academy");
         items.push({ title: d.name, sub: d.school ? d.full : root + " · " + d.full, kind: "page", hash: "#" + d.id,
                      text: [d.name, d.full, root].join(" ") });
         d.years.forEach((y) => {
@@ -617,13 +634,13 @@ function renderDirection(d) {
     $("dirTitle").textContent = d.name;
     $("dirLead").textContent = d.full + (d.newWindow
         ? ". Сервіс відкриється в новому вікні — зручно тримати його поряд із основним завданням."
-        : (d.school ? ". Оберіть предмет і сервіс." : d.categories ? ". Оберіть категорію та сервіс." : ". Оберіть свій рік навчання та предмет."));
+        : (d.olympiad ? ". Оберіть олімпіаду." : d.school ? ". Оберіть предмет і сервіс." : d.categories ? ". Оберіть категорію та сервіс." : ". Оберіть свій рік навчання та предмет."));
     $("dirCrumb").textContent = d.full;
-    $("toHome").textContent = d.school ? "← До вибору класу" : "← До вибору напрямку";
+    $("toHome").textContent = d.olympiad ? "← На головну" : (d.school ? "← До вибору класу" : "← До вибору напрямку");
     const bn = document.querySelector("#direction .brand-name");
-    if (bn && bn.firstChild) bn.firstChild.textContent = d.school ? "StepSchool" : "ITSTEP Academy";
+    if (bn && bn.firstChild) bn.firstChild.textContent = d.olympiad ? "Олімпіади" : (d.school ? "StepSchool" : "ITSTEP Academy");
     const bm = document.querySelector("#direction .brand-mark");
-    if (bm) bm.textContent = d.school ? "SS" : "IT";
+    if (bm) bm.textContent = d.olympiad ? "🏆" : (d.school ? "SS" : "IT");
     const wrap = $("years"); wrap.innerHTML = "";
     if (!d.years.length) {
         const e0 = document.createElement("div"); e0.className = "empty";
@@ -653,18 +670,22 @@ function renderDirection(d) {
 }
 
 // --- Маршрутизація через #hash (працює кнопка «назад» у SEB) ---
-function setTheme(isSchool) { document.body.classList.toggle("theme-school", !!isSchool); }
+function setTheme(name) {
+    // name: "school" | "olympiad" | "" (true трактуємо як "school" для сумісності)
+    document.body.classList.toggle("theme-school", name === true || name === "school");
+    document.body.classList.toggle("theme-olympiad", name === "olympiad");
+}
 
 function route() {
     searchBoxes.forEach((b) => b.reset());   // очищаємо пошук при переході
     const hash = location.hash.slice(1);
-    if (hash === "school") { setTheme(true); show("school"); document.title = "StepSchool — StepBlock"; return; }
-    if (hash === "academy") { setTheme(false); show("home"); document.title = "ITSTEP Academy — StepBlock"; return; }
+    if (hash === "school") { setTheme("school"); show("school"); document.title = "StepSchool — StepBlock"; return; }
+    if (hash === "academy") { setTheme(""); show("home"); document.title = "ITSTEP Academy — StepBlock"; return; }
     const [dirId, siteId, linkId] = hash.split("/");
     const d = ALL_DIRECTIONS.find((x) => x.id === dirId);
-    if (!d) { setTheme(false); show("landing"); document.title = "StepBlock"; return; }
-    setTheme(d.school);
-    parentHash = d.school ? "#school" : "#academy";
+    if (!d) { setTheme(""); show("landing"); document.title = "StepBlock"; return; }
+    setTheme(d.olympiad ? "olympiad" : (d.school ? "school" : ""));
+    parentHash = d.olympiad ? "" : (d.school ? "#school" : "#academy");
 
     if (siteId) {
         const s = d.years.flatMap((y) => y.sites).find((x) => x.id === siteId);
