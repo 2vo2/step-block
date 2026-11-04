@@ -1,0 +1,33 @@
+/* Сторінка олімпіади (кольори беруться з теми body.theme-olympiad у style.css) */
+body.ol-page { background: var(--paper); }
+main.ol-main { max-width: 1600px; padding: 20px 24px 28px; }
+
+.ol-card { max-width: 520px; margin: 24px auto; padding: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 22px; }
+.ol-card h1 { font-size: 28px; }
+.ol-card p { margin-top: 10px; color: var(--muted); line-height: 1.5; }
+.ol-field { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+.ol-field label { font-weight: 700; font-size: 14px; }
+.ol-field input { padding: 12px 14px; font-size: 17px; font-family: inherit; color: var(--ink); background: #fff; border: 2px solid var(--line); border-radius: 12px; }
+.ol-field input:focus { border-color: var(--blue); outline: none; }
+.ol-error { margin-top: 14px; padding: 10px 12px; border-radius: 10px; background: #FDECEC; color: #8A1C1C; font-weight: 600; }
+.ol-note { margin-top: 14px; padding: 10px 12px; border-radius: 10px; background: #FFF4D6; color: #6B4A00; font-size: 14px; }
+.ol-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.ol-actions .btn { padding: 12px 20px; font-size: 16px; }
+
+.ol-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.ol-who { font-weight: 700; }
+.ol-status { margin-left: auto; font-size: 14px; color: var(--muted); }
+.ol-status.ok { color: #0B7A57; }
+.ol-status.warn { color: #9A5B00; font-weight: 600; }
+.ol-status.bad { color: #A11919; font-weight: 600; }
+
+.ol-layout { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 16px; margin-top: 16px; height: calc(100vh - 200px); min-height: 520px; }
+.ol-tasks { display: flex; flex-direction: column; gap: 10px; overflow-y: auto; padding-right: 4px; }
+.ol-task { padding: 2px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.ol-task summary { cursor: pointer; padding: 12px 0; font-weight: 700; }
+.ol-task pre { margin: 0 0 12px; white-space: pre-wrap; font-family: inherit; font-size: 14px; line-height: 1.5; }
+.ol-task h4 { margin: 8px 0 2px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.ol-editor { overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.ol-editor iframe { display: block; width: 100%; height: 100%; border: 0; }
+.ol-debug { margin-top: 12px; padding: 10px; max-height: 160px; overflow: auto; font-size: 12px; background: #111; color: #9f9; border-radius: 10px; white-space: pre-wrap; }
+@media (max-width: 900px) { .ol-layout { grid-template-columns: 1fr; height: auto; } .ol-editor { height: 70vh; } }
