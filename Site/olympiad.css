@@ -31,3 +31,25 @@ main.ol-main { max-width: 1600px; padding: 20px 24px 28px; }
 .ol-editor iframe { display: block; width: 100%; height: 100%; border: 0; }
 .ol-debug { margin-top: 12px; padding: 10px; max-height: 160px; overflow: auto; font-size: 12px; background: #111; color: #9f9; border-radius: 10px; white-space: pre-wrap; }
 @media (max-width: 900px) { .ol-layout { grid-template-columns: 1fr; height: auto; } .ol-editor { height: 70vh; } }
+
+/* ---------- Таймер, пауза, модальне вікно ---------- */
+.ol-timer { padding: 6px 12px; border-radius: 999px; font-weight: 800; font-size: 18px; font-variant-numeric: tabular-nums; color: var(--blue); background: var(--paper); border: 2px solid var(--line); }
+.ol-timer.warn { color: #8A5A00; background: #FFF4D6; border-color: #FFB020; }
+.ol-timer.bad { color: #A11919; background: #FDECEC; border-color: #E5484D; animation: ol-pulse 1s infinite; }
+.ol-timer.paused { color: var(--muted); background: #EEE; border-color: #CCC; }
+@keyframes ol-pulse { 50% { opacity: .55; } }
+.ol-layout { position: relative; }
+.ol-overlay { position: absolute; inset: 0; z-index: 20; display: none; align-items: center; justify-content: center; background: rgba(27, 21, 48, .94); border-radius: 16px; }
+.ol-overlay.show { display: flex; }
+.ol-overlay-box { max-width: 460px; padding: 28px; text-align: center; color: #fff; }
+.ol-overlay-box h2 { font-size: 30px; }
+.ol-overlay-box p { margin: 12px 0 20px; color: rgba(255, 255, 255, .85); }
+.ol-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(27, 21, 48, .6); }
+.ol-modal-box { width: min(420px, 92vw); padding: 24px; background: var(--card); border-radius: 20px; }
+.ol-modal-box h2 { font-size: 22px; }
+.ol-modal-box p { margin: 8px 0 4px; color: var(--muted); font-size: 14px; }
+.ol-modal-box input { width: 100%; margin-top: 10px; padding: 12px 14px; font-size: 17px; font-family: inherit; border: 2px solid var(--line); border-radius: 12px; }
+.ol-modal-box input:focus { border-color: var(--blue); outline: none; }
+.ol-sync { margin-top: 14px; font-weight: 600; }
+.ol-sync.ok { color: #0B7A57; }
+.ol-sync.warn { color: #9A5B00; }
