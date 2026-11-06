@@ -252,7 +252,7 @@ const OLYMPIADS = {
     years: [
         {
             title: "Python", sites: [
-                { id: "python-demo", name: "Олімпіада з Python (демо)", desc: "3 задачі · вхід за ПІБ і паролем", logo: "", url: "olympiad.html?o=python-demo" }
+                { id: "python-demo", name: "Олімпіада з Python (демо)", desc: "3 задачі · вхід за ПІБ і паролем", logo: "", url: "Site/olympiad.html?o=python-demo" }
             ]
         }
     ]
