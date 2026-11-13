@@ -34,7 +34,7 @@ window.OLYMPIADS = {
         adminPasswordHash: "",
         autoDownload: true,
         fileName: "tasks.py",
-        backendUrl: "https://script.google.com/macros/s/AKfycbz3abjb5DL93aBCmNyCHL16Azos_dXB_1GQljxC-ZBGYtp2AyL3vsr494OFvsIZyDGH/exec",
+        backendUrl: "https://script.google.com/macros/s/AKfycbxq_UacfQVBdUf7I3V5R5dbkexNWoTB3GR43RAT4tiT4gaJed93-cgixT45C0B6TrF4/exec",
         token: "step_olympiad_python_junior",
         autosaveSeconds: 10,
         disableCopyPaste: true,
