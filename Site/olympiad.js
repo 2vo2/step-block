@@ -56,6 +56,36 @@
         return;
     }
 
+    // ---------- службова сторінка: перевірка зв'язку з сервером ----------
+    if (params.get("tool") === "ping") {
+        const out = h("pre", { class: "ol-debug", text: "Перевірка…" });
+        app.append(h("div", { class: "ol-card" }, h("h1", { text: "Перевірка зв'язку з сервером" }),
+            h("p", { text: "Перевіряються обидва канали: звичайний POST і запасний JSONP." }), out));
+        (async () => {
+            const lines = [];
+            const print = () => { out.textContent = lines.join("\n"); };
+            if (!cfg || !cfg.backendUrl) { lines.push("У olympiad_config.js не задано backendUrl для цієї олімпіади."); return print(); }
+            lines.push("backendUrl: " + cfg.backendUrl);
+            try {
+                const t0 = Date.now();
+                const r = await fetch(cfg.backendUrl, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ action: "ping", token: cfg.token }) });
+                const data = await r.json();
+                lines.push("POST (fetch): " + (data && data.ok ? "OK" : "відповідь без ok: " + JSON.stringify(data)) + " (" + (Date.now() - t0) + " мс)");
+                if (data && data.error === "bad_token") lines.push("  → токен у olympiad_config.js не збігається з TOKEN у скрипті");
+            } catch (e) { lines.push("POST (fetch): ПОМИЛКА — " + errText(e)); }
+            print();
+            try {
+                const t0 = Date.now();
+                const data = await jsonp({ action: "ping", token: cfg.token }, 15000);
+                lines.push("GET (JSONP): " + (data && data.ok ? "OK" : "відповідь без ok: " + JSON.stringify(data)) + " (" + (Date.now() - t0) + " мс)");
+            } catch (e) { lines.push("GET (JSONP): ПОМИЛКА — " + errText(e)); }
+            lines.push("", "Якщо POST дає помилку, а JSONP — OK, сторінка працюватиме через запасний канал.",
+                "Якщо обидва дають помилку: перевірте розгортання (доступ «Усі», нова версія) і дозвіл доменів у SEB.");
+            print();
+        })();
+        return;
+    }
+
     if (SETTINGS.requireSeb !== false && !/\bSEB\//i.test(navigator.userAgent)) {
         showMessage("Відкрийте через Safe Exam Browser", "Олімпіада працює лише в безпечному середовищі. Закрийте браузер і запустіть Safe Exam Browser.");
         return;
@@ -121,20 +151,77 @@
     }
 
     // ---------- сервер ----------
-    async function api(action, extra) {
+    function basePayload(action, extra) {
+        return Object.assign({ action, token: cfg.token, oid: OID, pid: S.pid, name: S.name, passHash: S.passHash }, extra || {});
+    }
+    function fnv(str) {                                        // та сама функція, що fnv_ у olympiad_backend.gs
+        let hsh = 0x811c9dc5;
+        for (let i = 0; i < str.length; i++) { hsh ^= str.charCodeAt(i); hsh = Math.imul(hsh, 0x01000193) >>> 0; }
+        return hsh.toString(16);
+    }
+    function errText(e) { return (e && e.name ? e.name + ": " : "") + (e && e.message ? e.message : String(e)); }
+
+    // Запасний канал без CORS: GET із <script> (JSONP). Для малих запитів (вхід, синхронізація, завершення, пауза).
+    function jsonp(payload, timeoutMs) {
+        return new Promise((resolve, reject) => {
+            const cb = "__olcb" + Math.random().toString(36).slice(2);
+            const script = document.createElement("script");
+            let timer = null;
+            const done = (fn, value) => { clearTimeout(timer); try { delete window[cb]; } catch (e) { window[cb] = undefined; } script.remove(); fn(value); };
+            window[cb] = (data) => done(resolve, data);
+            script.onerror = () => done(reject, new Error("jsonp: не вдалося завантажити відповідь"));
+            timer = setTimeout(() => done(reject, new Error("jsonp: таймаут")), timeoutMs || 20000);
+            const sep = cfg.backendUrl.indexOf("?") >= 0 ? "&" : "?";
+            script.src = cfg.backendUrl + sep + "callback=" + cb + "&p=" + encodeURIComponent(JSON.stringify(payload));
+            document.head.append(script);
+        });
+    }
+
+    // Запасний варіант для збереження: POST без читання відповіді + перевірка збереження контрольною сумою
+    async function saveViaFallback(payload, timeoutMs) {
+        await fetch(cfg.backendUrl, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+        let last = null;
+        for (const file of payload.files || []) {
+            const v = await jsonp(basePayload("verify", { name: file.name, len: file.content.length, hash: fnv(file.content) }), timeoutMs);
+            if (!v || !v.ok) return v || { ok: false, error: "verify_failed" };
+            last = v;
+            if (!v.match) {
+                if (v.finished) return { ok: false, error: "finished", finishReason: v.finishReason, state: v.state };
+                if (v.state && v.state.pausedAt) return { ok: false, error: "paused", state: v.state };
+                return { ok: false, error: "not_saved" };
+            }
+        }
+        return { ok: true, state: last && last.state };
+    }
+
+    async function api(action, extra, opts) {
         if (!cfg.backendUrl) throw new Error("no_backend");
-        const body = JSON.stringify(Object.assign(
-            { action, token: cfg.token, oid: OID, pid: S.pid, name: S.name, passHash: S.passHash }, extra || {}));
-        const ctrl = new AbortController();
-        const timeout = setTimeout(() => ctrl.abort(), 20000);
+        const timeoutMs = (opts && opts.timeout) || 20000;
+        const payload = basePayload(action, extra);
+        let data;
         try {
-            const resp = await fetch(cfg.backendUrl, {
-                method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body, signal: ctrl.signal,
-            });
-            const data = await resp.json();
-            if (data && data.state) applyState(data.state);
-            return data;
-        } finally { clearTimeout(timeout); }
+            const ctrl = new AbortController();
+            const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+            try {
+                const resp = await fetch(cfg.backendUrl, {
+                    method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload), signal: ctrl.signal,
+                });
+                data = await resp.json();
+            } finally { clearTimeout(timer); }
+        } catch (e) {
+            // Запит міг дійти до сервера, але відповідь не прочиталась (типово для CORS) — пробуємо запасний канал
+            S.lastApiError = "POST: " + errText(e);
+            if (DEBUG) console.warn("[olympiad] " + S.lastApiError);
+            try {
+                data = action === "save" ? await saveViaFallback(payload, timeoutMs) : await jsonp(payload, timeoutMs);
+                if (DEBUG) console.info("[olympiad] запасний канал спрацював");
+            } catch (e2) {
+                S.lastApiError += " | запасний канал: " + errText(e2);
+                throw e2;
+            }
+        }
+        if (data && data.state) applyState(data.state);
+        return data;
     }
 
     // ---------- єдиний файл tasks.py: лише розділювачі, умови — ліворуч ----------
@@ -188,12 +275,14 @@
         S.pid = (await sha256(OID + "|" + normalizeName(rawName))).slice(0, 16);
         S.passHash = await sha256(OID + "|" + S.pid + "|" + password);
 
-        let server = null;
+        let server = null, serverError = "";
         if (cfg.backendUrl) {
+            S.lastApiError = "";
             try { server = await api("login", { durationMin: cfg.durationMinutes || 0 }); } catch (e) { server = null; }
             if (server && !server.ok) {
                 if (server.error === "wrong_password") throw userError("Невірний пароль для цього ПІБ. Якщо це перший вхід, перевірте правильність написання ПІБ.");
                 if (server.error === "bad_token") throw userError("Помилка налаштування сервера (токен). Повідомте вчителя.");
+                serverError = String(server.error || "unknown");
                 server = null;
             }
         }
@@ -204,7 +293,9 @@
             // Сервер недоступний: новий учасник не може почати (час має йти за серверним годинником),
             // а той, хто вже починав на цьому ПК, продовжує за локальним відліком.
             if (!(local && local.timing && local.timing.startedAt)) {
-                throw userError("Немає зв'язку із сервером. Перевірте мережу й спробуйте ще раз.");
+                throw userError(serverError
+                    ? "Сервер повернув помилку: " + serverError + ". Повідомте вчителя."
+                    : "Немає зв'язку із сервером. Перевірте мережу й спробуйте ще раз." + (S.lastApiError ? " [" + S.lastApiError + "]" : ""));
             }
             S.offline = true;
         }
@@ -395,6 +486,22 @@
         input.focus();
     }
 
+    // Власне вікно підтвердження (стандартні alert/confirm у SEB можуть не показуватись)
+    function confirmDialog(title, text, okText) {
+        return new Promise((resolve) => {
+            const okBtn = h("button", { type: "button", class: "btn btn-main", text: okText || "Так" });
+            const noBtn = h("button", { type: "button", class: "btn btn-light", text: "Скасувати" });
+            const modal = h("div", { class: "ol-modal", tabindex: "-1" }, h("div", { class: "ol-modal-box" },
+                h("h2", { text: title }), h("p", { text }), h("div", { class: "ol-actions" }, okBtn, noBtn)));
+            const close = (value) => { modal.remove(); resolve(value); };
+            okBtn.addEventListener("click", () => close(true));
+            noBtn.addEventListener("click", () => close(false));
+            modal.addEventListener("keydown", (e) => { if (e.key === "Escape") close(false); });
+            document.body.append(modal);
+            noBtn.focus();
+        });
+    }
+
     function togglePause() {
         if (S.finished || S.finishing || S.timeUp) return;
         const resuming = S.paused;
@@ -453,7 +560,7 @@
         if (S.saveTimer) return;
         S.saveTimer = setTimeout(() => { S.saveTimer = null; flush(); }, ms);
     }
-    async function flush() {
+    async function flush(timeoutMs) {
         if (S.saveTimer) { clearTimeout(S.saveTimer); S.saveTimer = null; }
         if (S.finished || !S.dirty.size) return true;
         if (!cfg.backendUrl) {
@@ -467,7 +574,7 @@
         setStatus("Зберігаємо…");
         let ok = false;
         try {
-            const res = await api("save", { files: names.map((n) => ({ name: n, content: sent[n] })) });
+            const res = await api("save", { files: names.map((n) => ({ name: n, content: sent[n] })) }, timeoutMs ? { timeout: timeoutMs } : undefined);
             if (res && res.ok) {
                 names.forEach((n) => { if (S.files[n] === sent[n]) S.dirty.delete(n); });
                 S.lastSaved = new Date(); S.offline = false; ok = true;
@@ -525,23 +632,29 @@
     async function onTimeUp() {
         if (S.timeUp || S.finished || S.finishing) return;
         S.timeUp = true;
-        overlay._title.textContent = "⏱ Час вичерпано";
-        overlayText.textContent = "Зберігаємо результат. Не закривайте вікно…";
+        showBlocker("⏱ Час вичерпано", "Зберігаємо результат. Не закривайте вікно…");
+        await finalizeAttempt("time");
+    }
+
+    function showBlocker(title, text) {
+        if (!overlay) return;
+        overlay._title.textContent = title;
+        overlayText.textContent = text;
         overlay._resume.style.display = "none";
         overlay.classList.add("show");
         if (frame) frame.style.visibility = "hidden";
-        await finalizeAttempt("time");
     }
 
     async function finalizeAttempt(reason) {
         S.finishing = true; S.finishReason = reason;
+        if (reason !== "time") showBlocker("Завершуємо…", "Зберігаємо результат. Не закривайте вікно.");
         if (S.saveTimer) { clearTimeout(S.saveTimer); S.saveTimer = null; }
         let saved = !cfg.backendUrl;
-        for (let i = 0; i < 3 && !saved; i++) { saved = await flush(); if (!saved) await sleep(1500); }
+        for (let i = 0; i < 2 && !saved; i++) { saved = await flush(8000); if (!saved) await sleep(1000); }
         let finished = !cfg.backendUrl;
-        for (let i = 0; i < 3 && !finished; i++) {
-            try { const r = await api("finish", { reason }); finished = !!(r && r.ok); } catch (e) { finished = false; }
-            if (!finished) await sleep(1500);
+        for (let i = 0; i < 2 && !finished; i++) {
+            try { const r = await api("finish", { reason }, { timeout: 8000 }); finished = !!(r && r.ok); } catch (e) { finished = false; }
+            if (!finished) await sleep(1000);
         }
         S.finished = true;
         S.synced = (saved && finished && !S.dirty.size) || !cfg.backendUrl;
@@ -553,7 +666,8 @@
 
     async function finishWork() {
         if (S.finishing || S.finished) return;
-        if (!window.confirm("Завершити роботу? Після цього змінювати розв'язки буде неможливо.")) return;
+        const yes = await confirmDialog("Завершити роботу?", "Після цього змінювати розв'язки буде неможливо.", "Так, завершити");
+        if (!yes) return;
         setStatus("Завершуємо…");
         await finalizeAttempt("manual");
     }
